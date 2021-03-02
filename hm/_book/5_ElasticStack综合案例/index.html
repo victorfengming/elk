@@ -1,0 +1,614 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>5_ElasticStack综合案例 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../6_使用ELK搭建蘑菇博客日志收集/" />
+    
+    
+    <link rel="prev" href="../4_Logstash入门简介/" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../1_ElasticSearch介绍与安装/">
+            
+                <a href="../1_ElasticSearch介绍与安装/">
+            
+                    
+                    1_ElasticSearch介绍与安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../2_Beats入门简介/">
+            
+                <a href="../2_Beats入门简介/">
+            
+                    
+                    2_Beats入门简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../3_Kibana安装与介绍/">
+            
+                <a href="../3_Kibana安装与介绍/">
+            
+                    
+                    3_Kibana安装与介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="../4_Logstash入门简介/">
+            
+                <a href="../4_Logstash入门简介/">
+            
+                    
+                    4_Logstash入门简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.5" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    5_ElasticStack综合案例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="../6_使用ELK搭建蘑菇博客日志收集/">
+            
+                <a href="../6_使用ELK搭建蘑菇博客日志收集/">
+            
+                    
+                    6_使用ELK搭建蘑菇博客日志收集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" >
+            
+                <span>
+            
+                    
+                    0_完整课件
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.7.1" data-path="../0_pdf课件/note01.html">
+            
+                <a href="../0_pdf课件/note01.html">
+            
+                    
+                    part01
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7.2" data-path="../0_pdf课件/note02.html">
+            
+                <a href="../0_pdf课件/note02.html">
+            
+                    
+                    part02
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >5_ElasticStack综合案例</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="elasticstack&#x7EFC;&#x5408;&#x6848;&#x4F8B;">ElasticStack&#x7EFC;&#x5408;&#x6848;&#x4F8B;</h1>
+<p>&#x672C;&#x7BC7;&#x5C06;&#x6211;&#x4EEC;&#x524D;&#x9762;&#x5B66;&#x4E60;&#x5230;&#x7684;&#x6280;&#x672F;&#xFF1A;ElasticSearch&#x3001;Beats&#x3001;Kibana&#x3001;Logstash &#x6574;&#x5408;&#x8D77;&#x6765;&#xFF0C;&#x505A;&#x4E00;&#x4E2A;&#x7EFC;&#x5408;&#x6027;&#x7684;&#x5B66;&#x4E60;&#xFF0C;&#x76EE;&#x7684;&#x662F;&#x4E3A;&#x4E86;&#x8BA9;&#x5C0F;&#x4F19;&#x4F34;&#x4EEC;&#x80FD;&#x591F;&#x66F4;&#x52A0;&#x6DF1;&#x523B;&#x7684;&#x7406;&#x89E3;ElasticStack&#x7684;&#x4F7F;&#x7528;</p>
+<h2 id="&#x6D41;&#x7A0B;&#x8BF4;&#x660E;">&#x6D41;&#x7A0B;&#x8BF4;&#x660E;</h2>
+<p><img src="images/image-20200925083514711.png" alt="image-20200925083514711"></p>
+<ul>
+<li>&#x5E94;&#x7528;APP&#x751F;&#x4EA7;&#x65E5;&#x5FD7;&#xFF0C;&#x7528;&#x6765;&#x8BB0;&#x5F55;&#x7528;&#x6237;&#x7684;&#x64CD;&#x4F5C;<ul>
+<li>[INFO] 2019-03-15 22:55:20 [Main] - DAU|5206|&#x4F7F;&#x7528;&#x4F18;&#x60E0;&#x5238;|2019-03-15 03:37:20</li>
+<li>[INFO] 2019-03-15 22:55:21 [Main] - DAU|3880|&#x6D4F;&#x89C8;&#x9875;&#x9762;|2019-03-15 07:25:09</li>
+</ul>
+</li>
+<li>&#x901A;&#x8FC7;Filebeat&#x8BFB;&#x53D6;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x5E76;&#x4E14;&#x5C06;&#x5185;&#x5BB9;&#x53D1;&#x9001;&#x7ED9;Logstash&#xFF0C;&#x539F;&#x56E0;&#x662F;&#x9700;&#x8981;&#x5BF9;&#x5185;&#x5BB9;&#x505A;&#x5904;&#x7406;</li>
+<li>Logstash&#x63A5;&#x6536;&#x5230;&#x5185;&#x5BB9;&#x540E;&#xFF0C;&#x8FDB;&#x884C;&#x5904;&#x7406;&#xFF0C;&#x5982;&#x5206;&#x5272;&#x64CD;&#x4F5C;&#xFF0C;&#x7136;&#x540E;&#x5C06;&#x5185;&#x5BB9;&#x53D1;&#x9001;&#x5230;Elasticsearch&#x4E2D;</li>
+<li>Kibana&#x4F1A;&#x8BFB;&#x53D6;Elasticsearch&#x4E2D;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x5E76;&#x4E14;&#x5728;Kibana&#x4E2D;&#x8FDB;&#x884C;&#x8BBE;&#x8BA1;Dashboard&#xFF0C;&#x6700;&#x540E;&#x8FDB;&#x884C;&#x5C55;&#x793A;</li>
+</ul>
+<blockquote>
+<p>&#x8BF4;&#x660E;&#xFF1A;&#x65E5;&#x5FD7;&#x683C;&#x5F0F;&#x3001;&#x56FE;&#x8868;&#x3001;Dashboard&#x90FD;&#x662F;&#x81EA;&#x5B9A;&#x4E49;&#x7684;</p>
+</blockquote>
+<h2 id="app&#x4ECB;&#x7ECD;">App&#x4ECB;&#x7ECD;</h2>
+<p>APP&#x5728;&#x751F;&#x4EA7;&#x73AF;&#x5883;&#x5E94;&#x8BE5;&#x662F;&#x771F;&#x5B9E;&#x7CFB;&#x7EDF;&#xFF0C;&#x7136;&#x800C;&#xFF0C;&#x73B0;&#x5728;&#x6211;&#x4EEC;&#x5B66;&#x4E60;&#x7684;&#x8BDD;&#xFF0C;&#x4E3A;&#x4E86;&#x7B80;&#x5316;&#x64CD;&#x4F5C;&#xFF0C;&#x6240;&#x4EE5;&#x5C31;&#x505A;&#x6570;&#x636E;&#x7684;&#x6A21;&#x62DF;&#x751F;&#x6210;&#x5373;&#x53EF;&#x3002;</p>
+<p>&#x4E1A;&#x52A1;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> com.log;
+
+<span class="hljs-keyword">import</span> lombok.extern.slf4j.Slf4j;
+<span class="hljs-keyword">import</span> org.apache.commons.lang3.RandomUtils;
+<span class="hljs-keyword">import</span> org.joda.time.DateTime;
+<span class="hljs-keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;
+
+<span class="hljs-meta">@Slf</span>4j
+<span class="hljs-meta">@SpringBootApplication</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Main</span> </span>{
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String[] VISIT = <span class="hljs-keyword">new</span> String[]{<span class="hljs-string">&quot;&#x6D4F;&#x89C8;&#x9875;&#x9762;&quot;</span>, <span class="hljs-string">&quot;&#x8BC4;&#x8BBA;&#x5546;&#x54C1;&quot;</span>, <span class="hljs-string">&quot;&#x52A0;&#x5165;&#x6536;&#x85CF;&quot;</span>, <span class="hljs-string">&quot;&#x52A0;&#x5165;&#x8D2D;&#x7269;&#x8F66;&quot;</span>, <span class="hljs-string">&quot;&#x63D0;&#x4EA4;&#x8BA2;&#x5355;&quot;</span>, <span class="hljs-string">&quot;&#x4F7F;&#x7528;&#x4F18;&#x60E0;&#x5238;&quot;</span>, <span class="hljs-string">&quot;&#x9886;&#x53D6;&#x4F18;&#x60E0;&#x5238;&quot;</span>, <span class="hljs-string">&quot;&#x641C;&#x7D22;&quot;</span>, <span class="hljs-string">&quot;&#x67E5;&#x770B;&#x8BA2;&#x5355;&quot;</span>};
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> Exception </span>{
+        <span class="hljs-keyword">while</span>(<span class="hljs-keyword">true</span>){
+            Long sleep = RandomUtils.nextLong(<span class="hljs-number">200</span>, <span class="hljs-number">1000</span> * <span class="hljs-number">5</span>);
+            Thread.sleep(sleep);
+            Long maxUserId = <span class="hljs-number">9999L</span>;
+            Long userId = RandomUtils.nextLong(<span class="hljs-number">1</span>, maxUserId);
+            String visit = VISIT[RandomUtils.nextInt(<span class="hljs-number">0</span>, VISIT.length)];
+            DateTime now = <span class="hljs-keyword">new</span> DateTime();
+            <span class="hljs-keyword">int</span> maxHour = now.getHourOfDay();
+            <span class="hljs-keyword">int</span> maxMillis = now.getMinuteOfHour();
+            <span class="hljs-keyword">int</span> maxSeconds = now.getSecondOfMinute();
+            String date = now.plusHours(-(RandomUtils.nextInt(<span class="hljs-number">0</span>, maxHour)))
+                    .plusMinutes(-(RandomUtils.nextInt(<span class="hljs-number">0</span>, maxMillis)))
+                    .plusSeconds(-(RandomUtils.nextInt(<span class="hljs-number">0</span>, maxSeconds)))
+                    .toString(<span class="hljs-string">&quot;yyyy-MM-dd HH:mm:ss&quot;</span>);
+
+            String result = <span class="hljs-string">&quot;DAU|&quot;</span> + userId + <span class="hljs-string">&quot;|&quot;</span> + visit + <span class="hljs-string">&quot;|&quot;</span> + date;
+            log.error(result);
+        }
+    }
+}
+</code></pre>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x542F;&#x52A8;&#x8FD0;&#x884C;&#xFF0C;&#x5C31;&#x662F;&#x4E0D;&#x65AD;&#x7684;&#x751F;&#x6210;&#x65E5;&#x5FD7;&#xFF0C;&#x6A21;&#x62DF;&#x4E86;&#x6211;&#x4EEC;&#x7684;&#x5B9E;&#x9645;&#x4E1A;&#x52A1;</p>
+<pre><code class="lang-bash">09:18:32.721 [main] ERROR com.log.Main - DAU|8183|&#x52A0;&#x5165;&#x8D2D;&#x7269;&#x8F66;|2020-09-25 06:10:25
+09:18:33.599 [main] ERROR com.log.Main - DAU|7097|&#x63D0;&#x4EA4;&#x8BA2;&#x5355;|2020-09-25 06:18:31
+09:18:37.265 [main] ERROR com.log.Main - DAU|1468|&#x67E5;&#x770B;&#x8BA2;&#x5355;|2020-09-25 02:04:10
+09:18:39.634 [main] ERROR com.log.Main - DAU|7821|&#x9886;&#x53D6;&#x4F18;&#x60E0;&#x5238;|2020-09-25 02:04:07
+09:18:41.909 [main] ERROR com.log.Main - DAU|7962|&#x63D0;&#x4EA4;&#x8BA2;&#x5355;|2020-09-25 03:02:39
+09:18:43.596 [main] ERROR com.log.Main - DAU|3358|&#x8BC4;&#x8BBA;&#x5546;&#x54C1;|2020-09-25 08:14:19
+</code></pre>
+<p>&#x7136;&#x540E;&#x6211;&#x4EEC;&#x5C06;&#x8BE5;&#x9879;&#x76EE;&#x4F7F;&#x7528;&#x4E0B;&#x9762;&#x547D;&#x4EE4;&#x8FDB;&#x884C;&#x6253;&#x5305;</p>
+<pre><code class="lang-bash">mvn clean install
+</code></pre>
+<p>&#x6253;&#x5305;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x5230;target&#x76EE;&#x5F55;&#x4E0B;&#xFF0C;&#x80FD;&#x591F;&#x770B;&#x5230;&#x6211;&#x4EEC;&#x751F;&#x6210;&#x7684;jar&#x5305;</p>
+<p><img src="images/image-20200925092119075.png" alt="image-20200925092119075"></p>
+<p>&#x6211;&#x4EEC;&#x5C06;&#x5176;&#x590D;&#x5236;&#x5230;&#x6211;&#x4EEC;&#x7684;&#x670D;&#x52A1;&#x5668;&#x4E0A;&#xFF0C;&#x7136;&#x540E;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x542F;&#x52A8;&#x7684;&#x811A;&#x672C; startup.sh</p>
+<pre><code class="lang-bash"><span class="hljs-meta">#!/bin/bash     </span>
+nohup java  -Xms256m -Xmx512m -jar  mogu-dashboard-generate-0.0.1-SNAPSHOT.jar  &gt; app.log  2&gt;&amp;1 &amp;
+</code></pre>
+<p>&#x7136;&#x540E;&#x5C31;&#x4F7F;&#x7528;&#x811A;&#x672C;&#x8FDB;&#x884C;&#x542F;&#x52A8;</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># &#x542F;&#x52A8;</span>
+./startup.sh
+<span class="hljs-comment"># &#x542F;&#x52A8;&#x6210;&#x529F;&#x540E;&#xFF0C;&#x4F1A;&#x770B;&#x5230;&#x4E00;&#x4E2A;&#x65E5;&#x5FD7; app.log&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x67E5;&#x770B;</span>
+tail <span class="hljs-_">-f</span> app.log
+</code></pre>
+<h2 id="&#x914D;&#x7F6E;filebeat">&#x914D;&#x7F6E;Filebeat</h2>
+<p>&#x5728;&#x6709;&#x4E86;&#x4E0D;&#x65AD;&#x4EA7;&#x751F;&#x65E5;&#x5FD7;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x9700;&#x8981;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;Filebeat&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x7528;&#x4E8E;&#x65E5;&#x5FD7;&#x7684;&#x6536;&#x96C6;</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># &#x6253;&#x5F00;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</span>
+vim  mogu-dashboard.yml
+
+<span class="hljs-comment"># &#x5199;&#x5165;&#x6570;&#x636E;</span>
+filebeat.inputs:
+- <span class="hljs-built_in">type</span>: <span class="hljs-built_in">log</span>
+  enabled: <span class="hljs-literal">true</span>
+  paths:
+    - /soft/app/*.log
+setup.template.settings:
+  index.number_of_shards: 1
+output.logstash:
+  hosts: [<span class="hljs-string">&quot;127.0.0.1:5044&quot;</span>]
+</code></pre>
+<p>&#x7136;&#x540E;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x542F;&#x52A8;&#x4E86;&#x3010;&#x9700;&#x8981;&#x6211;&#x4EEC;&#x628A;Logstash&#x542F;&#x52A8;&#x8D77;&#x6765;&#x3011;</p>
+<pre><code class="lang-bash">./filebeat <span class="hljs-_">-e</span> -c mogu-dashboard.yml
+</code></pre>
+<h2 id="&#x914D;&#x7F6E;logstash">&#x914D;&#x7F6E;Logstash</h2>
+<h3 id="logstash&#x8F93;&#x51FA;&#x5230;&#x63A7;&#x5236;&#x53F0;">Logstash&#x8F93;&#x51FA;&#x5230;&#x63A7;&#x5236;&#x53F0;</h3>
+<p>Logstash&#x7684;&#x4E3B;&#x8981;&#x76EE;&#x7684;&#x5C31;&#x662F;&#x5904;&#x7406;Filebeat&#x53D1;&#x9001;&#x8FC7;&#x6765;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x8FDB;&#x884C;&#x6570;&#x636E;&#x7684;&#x6E05;&#x6D17;&#xFF0C;&#x8FC7;&#x6EE4;&#x7B49;&#xFF0C;&#x6211;&#x4EEC;&#x9996;&#x5148;&#x7B80;&#x5355;&#x7684;&#x5C06;logstash&#x83B7;&#x5F97;&#x7684;&#x6570;&#x636E;&#x8F93;&#x51FA;&#x5230;&#x63A7;&#x5236;&#x53F0;</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># &#x6253;&#x5F00;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</span>
+vim  mogu-dashboard.conf
+
+<span class="hljs-comment"># &#x6DFB;&#x52A0;&#x4EE5;&#x4E0B;&#x5185;&#x5BB9;</span>
+input {
+    beats {
+        port =&gt; <span class="hljs-string">&quot;5044&quot;</span>
+    }
+}
+output {
+    stdout { codec =&gt; rubydebug }
+}
+</code></pre>
+<p>&#x7136;&#x540E;&#x542F;&#x52A8;&#x6211;&#x4EEC;&#x7684;logstash &#x3010;&#x6CE8;&#x610F;&#xFF0C;&#x542F;&#x52A8;&#x65F6;&#x95F4;&#x6BD4;&#x8F83;&#x957F;&#xFF0C;&#x9700;&#x8981;&#x6211;&#x4EEC;&#x7B49;&#x5F85;&#x3011;</p>
+<pre><code class="lang-bash">./bin/logstash <span class="hljs-_">-f</span> mogu-dashboard.conf
+</code></pre>
+<p>&#x542F;&#x52A8;logstash&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x518D;&#x6B21;&#x542F;&#x52A8;filebeat&#xFF0C;&#x56DE;&#x5230;&#x4E0A;&#x9762;&#x7684;&#x542F;&#x52A8;&#x6B65;&#x9AA4;&#xFF0C;&#x7136;&#x540E;&#x5C31;&#x80FD;&#x770B;&#x5230;logstash&#x8F93;&#x51FA;&#x6211;&#x4EEC;&#x7684;&#x65E5;&#x5FD7;</p>
+<p><img src="images/image-20200925095319950.png" alt="image-20200925095319950"></p>
+<h3 id="&#x914D;&#x7F6E;logstash&#x8FDE;&#x63A5;elasticsearch">&#x914D;&#x7F6E;Logstash&#x8FDE;&#x63A5;ElasticSearch</h3>
+<p>&#x4E0A;&#x9762;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x5176;&#x5B9E;&#x8FD8;&#x662F;&#x6211;&#x4EEC;&#x7684;&#x539F;&#x59CB;&#x6570;&#x636E;&#xFF0C;&#x5E76;&#x6CA1;&#x6709;&#x7ECF;&#x8FC7;&#x5904;&#x7406;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#x5C31;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x5230;Logstash&#x7684;&#x5176;&#x5B83;&#x529F;&#x80FD;&#x4E86;&#x3002;&#x6211;&#x4EEC;&#x7EE7;&#x7EED;&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># &#x6253;&#x5F00;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</span>
+vim  mogu-dashboard.conf
+</code></pre>
+<p>&#x7136;&#x540E;&#x4FEE;&#x6539;&#x4E00;&#x4E0B;&#x7684;&#x503C;</p>
+<pre><code class="lang-bash">input {
+        beats {
+                port =&gt; <span class="hljs-string">&quot;5044&quot;</span>
+        }
+}
+filter {
+        mutate {
+                split =&gt; {<span class="hljs-string">&quot;message&quot;</span>=&gt;<span class="hljs-string">&quot;|&quot;</span>}
+        }
+        mutate {
+                add_field =&gt; {
+                <span class="hljs-string">&quot;userId&quot;</span> =&gt; <span class="hljs-string">&quot;%{[message][1]}&quot;</span>
+                <span class="hljs-string">&quot;visit&quot;</span> =&gt; <span class="hljs-string">&quot;%{[message][2]}&quot;</span>
+                <span class="hljs-string">&quot;date&quot;</span> =&gt; <span class="hljs-string">&quot;%{[message][3]}&quot;</span>
+                }
+        }
+        mutate {
+                convert =&gt; {
+                <span class="hljs-string">&quot;userId&quot;</span> =&gt; <span class="hljs-string">&quot;integer&quot;</span>
+                <span class="hljs-string">&quot;visit&quot;</span> =&gt; <span class="hljs-string">&quot;string&quot;</span>
+                <span class="hljs-string">&quot;date&quot;</span> =&gt; <span class="hljs-string">&quot;string&quot;</span>
+                }
+        }
+        mutate {
+           remove_field =&gt; [ <span class="hljs-string">&quot;host&quot;</span> ]
+        }
+}
+<span class="hljs-comment">#output {</span>
+<span class="hljs-comment"># stdout { codec =&gt; rubydebug }</span>
+<span class="hljs-comment">#}</span>
+
+output {
+  elasticsearch {
+    hosts =&gt; [ <span class="hljs-string">&quot;127.0.0.1:9200&quot;</span>]
+  }
+}
+</code></pre>
+<p>&#x7136;&#x540E;&#x518D;&#x6B21;&#x542F;&#x52A8;</p>
+<pre><code class="lang-bash">./bin/logstash <span class="hljs-_">-f</span> mogu-dashboard.conf
+</code></pre>
+<p>&#x5176;&#x5B9E;&#x80FD;&#x591F;&#x770B;&#x5230;&#xFF0C;&#x6211;&#x4EEC;&#x539F;&#x6765;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x5C31;&#x7ECF;&#x8FC7;&#x4E86;&#x5904;&#x7406;&#x4E86;&#xFF0C;&#x4EA7;&#x751F;&#x4E86;&#x65B0;&#x7684;&#x5B57;&#x6BB5;</p>
+<p><img src="images/image-20200925095824693.png" alt="image-20200925095824693"></p>
+<p>&#x540C;&#x65F6;&#x6211;&#x4EEC;&#x8FD8;&#x53EF;&#x4EE5;&#x5BF9;&#x6211;&#x4EEC;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x8FDB;&#x884C;&#x7C7B;&#x578B;&#x8F6C;&#x6362;&#xFF0C;&#x4E3A;&#x4E86;&#x65B9;&#x4FBF;&#x6211;&#x4EEC;&#x7684;&#x4E0B;&#x6E38;&#x8FDB;&#x884C;&#x5904;&#x7406;</p>
+<pre><code class="lang-bash">    mutate {
+        convert =&gt; {
+        <span class="hljs-string">&quot;userId&quot;</span> =&gt; <span class="hljs-string">&quot;integer&quot;</span>
+        <span class="hljs-string">&quot;visit&quot;</span> =&gt; <span class="hljs-string">&quot;string&quot;</span>
+        <span class="hljs-string">&quot;date&quot;</span> =&gt; <span class="hljs-string">&quot;string&quot;</span>
+        }
+    }
+</code></pre>
+<h3 id="&#x9047;&#x5230;&#x7684;&#x95EE;&#x9898;1">&#x9047;&#x5230;&#x7684;&#x95EE;&#x9898;1</h3>
+<pre><code class="lang-bash">[2020-09-25T02:32:44,042][WARN ][logstash.filters.mutate  ][main][5fd6a2f2f396816d849f2e3e2e0a53f2500a9b58c6819e23f42d2bfd34cde207] Exception caught <span class="hljs-keyword">while</span> applying mutate filter {:exception=&gt;<span class="hljs-string">&quot;Invalid FieldReference: `message[1]`&quot;</span>}
+</code></pre>
+<p>&#x4E0D;&#x65AD;&#x7684;&#x5237;&#x8FD9;&#x4E2A;&#x9519;&#x8BEF;&#xFF0C;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x6CA1;&#x95EE;&#x9898;&#xFF0C;&#x4F46;&#x6DFB;&#x52A0;&#x5B57;&#x6BB5;&#x90A3;&#x4E00;&#x4E2A;mutate&#x9700;&#x8981;&#x7ED9;message&#x5957;&#x4E00;&#x5C42;&#x4E2D;&#x62EC;&#x53F7;&#xFF1A;</p>
+<pre><code class="lang-bash">mutate {
+    add_field =&gt; {
+        <span class="hljs-string">&quot;userId&quot;</span> =&gt; <span class="hljs-string">&quot;%{[message][1]}&quot;</span>
+        <span class="hljs-string">&quot;visit&quot;</span> =&gt; <span class="hljs-string">&quot;%{[message][2]}&quot;</span>
+        <span class="hljs-string">&quot;date&quot;</span> =&gt; <span class="hljs-string">&quot;%{[message][3]}&quot;</span>
+    }
+}
+</code></pre>
+<h3 id="&#x9047;&#x5230;&#x7684;&#x95EE;&#x9898;2">&#x9047;&#x5230;&#x7684;&#x95EE;&#x9898;2</h3>
+<p>filebeat &#x4F20;&#x8F93;&#x5230;host&#x7684;&#x5B57;&#x6BB5;&#x4E2D;host&#x662F;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;</p>
+<pre><code class="lang-bash">failed to parse field [host] of <span class="hljs-built_in">type</span> [text] <span class="hljs-keyword">in</span> document
+</code></pre>
+<p>&#x89E3;&#x51B3;&#x65B9;&#x6CD5;&#x5C31;&#x662F;&#x8FC7;&#x6EE4;&#x6389;host&#x5B57;&#x6BB5;</p>
+<pre><code class="lang-bash">mutate {
+    remove_field =&gt; [ <span class="hljs-string">&quot;host&quot;</span> ]
+}
+</code></pre>
+<h2 id="&#x542F;&#x52A8;elasticsearch">&#x542F;&#x52A8;ElasticSearch</h2>
+<p>&#x5728;&#x6211;&#x4EEC;&#x901A;&#x8FC7;Logstash&#x53D1;&#x9001;&#x6570;&#x636E;&#x5230;ElasticSearch&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x8FD8;&#x9700;&#x8981;&#x542F;&#x52A8;&#x6211;&#x4EEC;&#x7684;ElasticSearch</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># &#x5207;&#x6362;&#x5230;elsearch&#x7528;&#x6237;</span>
+su elsearch
+
+<span class="hljs-comment"># &#x5230;&#x76EE;&#x5F55;</span>
+<span class="hljs-built_in">cd</span> /soft/elsearch/bin
+
+<span class="hljs-comment"># &#x542F;&#x52A8;</span>
+./elasticsearch
+</code></pre>
+<h2 id="&#x542F;&#x52A8;kibana">&#x542F;&#x52A8;Kibana</h2>
+<p>&#x6211;&#x4EEC;&#x6700;&#x540E;&#x5C31;&#x9700;&#x8981;&#x901A;&#x8FC7;Kibana&#x6765;&#x5C55;&#x793A;&#x6211;&#x4EEC;&#x7684;&#x56FE;&#x5F62;&#x5316;&#x6570;&#x636E;</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># &#x542F;&#x52A8;kibana</span>
+./bin/kibana
+
+<span class="hljs-comment"># &#x901A;&#x8FC7;&#x6D4F;&#x89C8;&#x5668;&#x8BBF;&#x95EE;</span>
+http://202.193.56.222:5601/app/kibana
+</code></pre>
+<h3 id="&#x6DFB;&#x52A0;&#x5230;&#x7D22;&#x5F15;&#x5E93;">&#x6DFB;&#x52A0;&#x5230;&#x7D22;&#x5F15;&#x5E93;</h3>
+<p>&#x6DFB;&#x52A0;Logstash&#x7D22;&#x5F15;&#x5230;Kibana&#x4E2D;&#xFF1A;</p>
+<pre><code class="lang-bash">http://202.193.56.222:5601/app/management/kibana/indexPatterns/create
+</code></pre>
+<p><img src="images/image-20200925112345791.png" alt="image-20200925112345791"></p>
+<p>&#x8F93;&#x5165;&#x6211;&#x4EEC;&#x7684;&#x5339;&#x914D;&#x89C4;&#x5219;&#xFF0C;&#x7136;&#x540E;&#x5339;&#x914D;&#x5230;logstash&#xFF0C;&#x7136;&#x540E;&#x9009;&#x62E9;&#x65F6;&#x95F4;&#x5B57;&#x6BB5;&#x540E;&#x521B;&#x5EFA;</p>
+<p><img src="images/image-20200925112534588.png" alt="image-20200925112534588"></p>
+<h3 id="&#x521B;&#x5EFA;&#x67F1;&#x5F62;&#x56FE;">&#x521B;&#x5EFA;&#x67F1;&#x5F62;&#x56FE;</h3>
+<p>&#x6211;&#x4EEC;&#x70B9;&#x51FB;&#x53F3;&#x4FA7;Visualizations&#xFF0C;&#x7136;&#x540E;&#x5F00;&#x59CB;&#x521B;&#x5EFA;&#x56FE;&#x6807;</p>
+<p><img src="images/image-20200925112621210.png" alt="image-20200925112621210"></p>
+<p>&#x7136;&#x540E;&#x9009;&#x62E9;&#x67F1;&#x5F62;&#x56FE;</p>
+<p><img src="images/image-20200925112705557.png" alt="image-20200925112705557"></p>
+<p>&#x5728;&#x9009;&#x62E9;&#x6211;&#x4EEC;&#x7684;&#x7D22;&#x5F15;</p>
+<p><img src="images/image-20200925112758534.png" alt="image-20200925112758534"></p>
+<p>&#x6700;&#x540E;&#x6211;&#x4EEC;&#x5B9A;&#x4E49;&#x6211;&#x4EEC;&#x7684;X&#x8F74;&#xFF0C;&#x9009;&#x62E9;&#x6309;&#x7167;&#x65F6;&#x95F4;&#x8FDB;&#x884C;&#x6DFB;&#x52A0;</p>
+<p><img src="images/image-20200925113054316.png" alt="image-20200925113054316"></p>
+<p>&#x6700;&#x540E;&#x66F4;&#x65B0;&#x6211;&#x4EEC;&#x7684;&#x9875;&#x9762;&#xFF0C;&#x7136;&#x540E;&#x5728;&#x9009;&#x62E9;&#x6700;&#x8FD1;&#x7684;30&#x5206;&#x949F;</p>
+<p><img src="images/image-20200925113133267.png" alt="image-20200925113133267"></p>
+<p>&#x5C31;&#x80FD;&#x591F;&#x770B;&#x5230;&#x6211;&#x4EEC;&#x7684;&#x65E5;&#x5FD7;&#x5728;&#x6E90;&#x6E90;&#x4E0D;&#x65AD;&#x7684;&#x751F;&#x6210;&#x4E86;&#xFF0C;&#x540C;&#x65F6;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5BF9;&#x6211;&#x4EEC;&#x7684;&#x8FD9;&#x4E2A;&#x56FE;&#x8868;&#x8FDB;&#x884C;&#x4FDD;&#x5B58;</p>
+<p><img src="images/image-20200925113154752.png" alt="image-20200925113154752"></p>
+<h3 id="&#x521B;&#x5EFA;&#x997C;&#x56FE;">&#x521B;&#x5EFA;&#x997C;&#x56FE;</h3>
+<p>&#x6211;&#x4EEC;&#x7EE7;&#x7EED;&#x9009;&#x62E9;&#x997C;&#x56FE;</p>
+<p><img src="images/image-20200925144902642.png" alt="image-20200925144902642"></p>
+<p>&#x7136;&#x540E;&#x9009;&#x62E9;&#x6211;&#x4EEC;&#x7684;&#x7D22;&#x5F15;</p>
+<p><img src="images/image-20200925144939062.png" alt="image-20200925144939062"></p>
+<p>&#x6DFB;&#x52A0;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x770B;&#x5230;&#x8FD9;&#x6837;&#x4E00;&#x4E2A;&#x9875;&#x9762;&#x4E86;</p>
+<p><img src="images/image-20200925145116116.png" alt="image-20200925145116116"></p>
+<p>&#x4F46;&#x662F;&#x8FD9;&#x6837;&#x8FD8;&#x4E0D;&#x6B7B;&#x5F88;&#x76F4;&#x89C2;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x8FD8;&#x9700;&#x8981;&#x505A;&#x5904;&#x7406;&#xFF0C;&#x627E;&#x5230;&#x53F3;&#x4FA7;&#x7684;Buckets&#xFF0C;&#x7136;&#x540E;&#x9009;&#x62E9;Split Slices&#xFF0C;&#x7136;&#x540E;&#x628A;&#x6211;&#x4EEC;&#x7684;&#x6BCF;&#x4E2A;&#x5B57;&#x6BB5;&#x90FD;&#x6DFB;&#x52A0;&#x4E0A;&#x53BB;&#xFF0C;&#x5176;&#x4E2D;visit&#x6307;&#x7684;&#x662F;&#x6211;&#x4EEC;es&#x4E2D;&#x7684;&#x5C5E;&#x6027;</p>
+<p><img src="images/image-20200925145451255.png" alt="image-20200925145451255"></p>
+<p>&#x6700;&#x540E;&#x9009;&#x62E9;update&#xFF0C;&#x5F97;&#x5230;&#x7684;&#x6548;&#x679C;&#x5982;&#x4E0B;&#x6240;&#x793A;</p>
+<p><img src="images/image-20200925145553509.png" alt="image-20200925145553509"></p>
+<p>&#x6211;&#x4EEC;&#x8FD8;&#x53EF;&#x4EE5;&#x7EE7;&#x7EED;&#x7ED9;&#x6BCF;&#x4E2A;&#x5B57;&#x6BB5;&#x90FD;&#x6DFB;&#x52A0;label&#x6807;&#x7B7E;</p>
+<p><img src="images/image-20200925145747292.png" alt="image-20200925145747292"></p>
+<p>&#x6DFB;&#x52A0;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x66F4;&#x65B0;&#x9875;&#x9762;&#xFF0C;&#x5C31;&#x5F97;&#x5230;&#x975E;&#x5E38;&#x4E0D;&#x9519;&#x7684;&#x6548;&#x679C;&#x4E86;~</p>
+<p><img src="images/image-20200925145807688.png" alt="image-20200925145807688"></p>
+<h3 id="&#x6570;&#x636E;&#x8868;&#x683C;">&#x6570;&#x636E;&#x8868;&#x683C;</h3>
+<p>&#x5728;&#x56FE;&#x6807;&#x4E2D;&#xFF0C;&#x9009;&#x62E9;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x663E;&#x793A;&#x7684;&#x5B57;&#x6BB5;&#x5373;&#x53EF;</p>
+<p><img src="images/image-20200925150415045.png" alt="image-20200925150415045"></p>
+<h2 id="&#x5236;&#x4F5C;dashboard">&#x5236;&#x4F5C;Dashboard</h2>
+<p><img src="images/image-20200925151827734.png" alt="image-20200925151827734"></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../4_Logstash入门简介/" class="navigation navigation-prev " aria-label="Previous page: 4_Logstash入门简介">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../6_使用ELK搭建蘑菇博客日志收集/" class="navigation navigation-next " aria-label="Next page: 6_使用ELK搭建蘑菇博客日志收集">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"5_ElasticStack综合案例","level":"2.5","depth":1,"next":{"title":"6_使用ELK搭建蘑菇博客日志收集","level":"2.6","depth":1,"path":"6_使用ELK搭建蘑菇博客日志收集/README.md","ref":"./6_使用ELK搭建蘑菇博客日志收集/README.md","articles":[]},"previous":{"title":"4_Logstash入门简介","level":"2.4","depth":1,"path":"4_Logstash入门简介/README.md","ref":"./4_Logstash入门简介/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"5_ElasticStack综合案例/README.md","mtime":"2021-03-02T06:03:49.792Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-02T06:18:20.668Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
