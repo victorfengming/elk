@@ -1,0 +1,997 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>6_使用ELK搭建蘑菇博客日志收集 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-lightbox/css/lightbox.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-ancre-navigation/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="../5_ElasticStack综合案例/" />
+    
+
+    
+        <link rel="shortcut icon" href='../../img/avator.png.icon.ico' type="image/x-icon">
+    
+    
+        <link rel="bookmark" href='../../img/avator.png.icon.ico' type="image/x-icon">
+    
+    
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" >
+            
+                <span>
+            
+                    
+                    sxt
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../../sxt/01_简介.html">
+            
+                <a href="../../sxt/01_简介.html">
+            
+                    
+                    01_简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="../../sxt/02_概念.html">
+            
+                <a href="../../sxt/02_概念.html">
+            
+                    
+                    02_概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="../../sxt/03_常用场景.html">
+            
+                <a href="../../sxt/03_常用场景.html">
+            
+                    
+                    03_常用场景
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="../../sxt/04_基于Docker安装ElasticSearch和Kibana.html">
+            
+                <a href="../../sxt/04_基于Docker安装ElasticSearch和Kibana.html">
+            
+                    
+                    04_基于Docker安装ElasticSearch和Kibana
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5" data-path="../../sxt/05_创建索引及状态查看.html">
+            
+                <a href="../../sxt/05_创建索引及状态查看.html">
+            
+                    
+                    05_创建索引及状态查看
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6" data-path="../../sxt/06_修改索引及删除索引.html">
+            
+                <a href="../../sxt/06_修改索引及删除索引.html">
+            
+                    
+                    06_修改索引及删除索引
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7" data-path="../../sxt/07_新增文档.html">
+            
+                <a href="../../sxt/07_新增文档.html">
+            
+                    
+                    07_新增文档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8" data-path="../../sxt/08_主键查询文档.html">
+            
+                <a href="../../sxt/08_主键查询文档.html">
+            
+                    
+                    08_主键查询文档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.9" data-path="../../sxt/09_修改文档.html">
+            
+                <a href="../../sxt/09_修改文档.html">
+            
+                    
+                    09_修改文档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.10" data-path="../../sxt/10_删除文档.html">
+            
+                <a href="../../sxt/10_删除文档.html">
+            
+                    
+                    10_删除文档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.11" data-path="../../sxt/11_bulk批量操作.html">
+            
+                <a href="../../sxt/11_bulk批量操作.html">
+            
+                    
+                    11_bulk批量操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.12" data-path="../../sxt/12_分词器和标准化处理.html">
+            
+                <a href="../../sxt/12_分词器和标准化处理.html">
+            
+                    
+                    12_分词器和标准化处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.13" data-path="../../sxt/13_安装中文分词器.html">
+            
+                <a href="../../sxt/13_安装中文分词器.html">
+            
+                    
+                    13_安装中文分词器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.14" data-path="../../sxt/14_mapping映射.html">
+            
+                <a href="../../sxt/14_mapping映射.html">
+            
+                    
+                    14_mapping映射
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.15" data-path="../../sxt/15_querystring搜索.html">
+            
+                <a href="../../sxt/15_querystring搜索.html">
+            
+                    
+                    15_querystring搜索
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.16" data-path="../../sxt/16_DSL搜索.html">
+            
+                <a href="../../sxt/16_DSL搜索.html">
+            
+                    
+                    16_DSL搜索
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.17" data-path="../../sxt/17_SpringDataElasticsearch_实体.html">
+            
+                <a href="../../sxt/17_SpringDataElasticsearch_实体.html">
+            
+                    
+                    17SpringDataElasticsearch实体
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.18" data-path="../../sxt/18_SpringDataElasticsearch_创建索引.html">
+            
+                <a href="../../sxt/18_SpringDataElasticsearch_创建索引.html">
+            
+                    
+                    18SpringDataElasticsearch创建索引
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.19" data-path="../../sxt/19_SpringDataElasticsearch_删除索引.html">
+            
+                <a href="../../sxt/19_SpringDataElasticsearch_删除索引.html">
+            
+                    
+                    19SpringDataElasticsearch删除索引
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.20" data-path="../../sxt/20_SpringDataElasticsearch_新增和修改文档.html">
+            
+                <a href="../../sxt/20_SpringDataElasticsearch_新增和修改文档.html">
+            
+                    
+                    20SpringDataElasticsearch新增和修改文档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.21" data-path="../../sxt/21_SpringDataElasticsearch_删除文档.html">
+            
+                <a href="../../sxt/21_SpringDataElasticsearch_删除文档.html">
+            
+                    
+                    21SpringDataElasticsearch删除文档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.22" data-path="../../sxt/22_SpringDataElasticsearch_搜索文档.html">
+            
+                <a href="../../sxt/22_SpringDataElasticsearch_搜索文档.html">
+            
+                    
+                    22SpringDataElasticsearch搜索文档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.23" data-path="../../sxt/23_SpringDataElasticsearch_高亮搜索.html">
+            
+                <a href="../../sxt/23_SpringDataElasticsearch_高亮搜索.html">
+            
+                    
+                    23SpringDataElasticsearch高亮搜索
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" >
+            
+                <span>
+            
+                    
+                    hm
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../1_ElasticSearch介绍与安装/">
+            
+                <a href="../1_ElasticSearch介绍与安装/">
+            
+                    
+                    1_ElasticSearch介绍与安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../2_Beats入门简介/">
+            
+                <a href="../2_Beats入门简介/">
+            
+                    
+                    2_Beats入门简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="../3_Kibana安装与介绍/">
+            
+                <a href="../3_Kibana安装与介绍/">
+            
+                    
+                    3_Kibana安装与介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="../4_Logstash入门简介/">
+            
+                <a href="../4_Logstash入门简介/">
+            
+                    
+                    4_Logstash入门简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="../5_ElasticStack综合案例/">
+            
+                <a href="../5_ElasticStack综合案例/">
+            
+                    
+                    5_ElasticStack综合案例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="3.7" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    6_使用ELK搭建蘑菇博客日志收集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.8" >
+            
+                <span>
+            
+                    
+                    0_完整课件
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.8.1" data-path="../0_pdf课件/note01.html">
+            
+                <a href="../0_pdf课件/note01.html">
+            
+                    
+                    part01
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.8.2" data-path="../0_pdf课件/note02.html">
+            
+                <a href="../0_pdf课件/note02.html">
+            
+                    
+                    part02
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >6_使用ELK搭建蘑菇博客日志收集</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <html><head></head><body><div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><span class="title-icon "></span><a href="#&#x4F7F;&#x7528;elk&#x642D;&#x5EFA;&#x8611;&#x83C7;&#x535A;&#x5BA2;&#x65E5;&#x5FD7;&#x6536;&#x96C6;"><b></b>&#x4F7F;&#x7528;ELK&#x642D;&#x5EFA;&#x8611;&#x83C7;&#x535A;&#x5BA2;&#x65E5;&#x5FD7;&#x6536;&#x96C6;</a></li><ul><li><span class="title-icon "></span><a href="#&#x524D;&#x8A00;"><b></b>&#x524D;&#x8A00;</a></li><li><span class="title-icon "></span><a href="#&#x62C9;&#x53D6;elasticstack&#x955C;&#x50CF;"><b></b>&#x62C9;&#x53D6;ElasticStack&#x955C;&#x50CF;</a></li><li><span class="title-icon "></span><a href="#&#x5236;&#x4F5C;&#x5BB9;&#x5668;"><b></b>&#x5236;&#x4F5C;&#x5BB9;&#x5668;</a></li><li><span class="title-icon "></span><a href="#&#x542F;&#x52A8;elasticsearch"><b></b>&#x542F;&#x52A8;ElasticSearch</a></li><li><span class="title-icon "></span><a href="#&#x542F;&#x52A8;logstash"><b></b>&#x542F;&#x52A8;Logstash</a></li><li><span class="title-icon "></span><a href="#&#x542F;&#x52A8;beats"><b></b>&#x542F;&#x52A8;Beats</a></li><ul><li><span class="title-icon "></span><a href="#&#x542F;&#x52A8;filebeat"><b></b>&#x542F;&#x52A8;filebeat</a></li></ul><li><span class="title-icon "></span><a href="#&#x542F;&#x52A8;kibana"><b></b>&#x542F;&#x52A8;Kibana</a></li></ul></ul></div><a href="#&#x4F7F;&#x7528;elk&#x642D;&#x5EFA;&#x8611;&#x83C7;&#x535A;&#x5BA2;&#x65E5;&#x5FD7;&#x6536;&#x96C6;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="&#x4F7F;&#x7528;elk&#x642D;&#x5EFA;&#x8611;&#x83C7;&#x535A;&#x5BA2;&#x65E5;&#x5FD7;&#x6536;&#x96C6;"><a name="&#x4F7F;&#x7528;elk&#x642D;&#x5EFA;&#x8611;&#x83C7;&#x535A;&#x5BA2;&#x65E5;&#x5FD7;&#x6536;&#x96C6;" class="anchor-navigation-ex-anchor" href="#&#x4F7F;&#x7528;elk&#x642D;&#x5EFA;&#x8611;&#x83C7;&#x535A;&#x5BA2;&#x65E5;&#x5FD7;&#x6536;&#x96C6;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4F7F;&#x7528;ELK&#x642D;&#x5EFA;&#x8611;&#x83C7;&#x535A;&#x5BA2;&#x65E5;&#x5FD7;&#x6536;&#x96C6;</h1>
+<h2 id="&#x524D;&#x8A00;"><a name="&#x524D;&#x8A00;" class="anchor-navigation-ex-anchor" href="#&#x524D;&#x8A00;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x524D;&#x8A00;</h2>
+<p>&#x524D;&#x9635;&#x5B50;&#x5B66;&#x4E60;&#x4E86;ElasticStack&#x7684;&#x6280;&#x672F;&#x6808;&#xFF0C;&#x5176;&#x4E2D;&#x5305;&#x62EC;ElasticSearch &#x3001;Beats&#x3001;Kibana&#x3001;Logstash&#x3002;&#x56E0;&#x4E3A;&#x6253;&#x7B97;&#x5C06;&#x5176;&#x7528;&#x4E8E;&#x8611;&#x83C7;&#x535A;&#x5BA2;&#x7684;&#x9879;&#x76EE;&#x4E2D;&#xFF0C;&#x5173;&#x4E8E;ElasticStack&#x7684;&#x6280;&#x672F;&#x6808;&#x5B66;&#x4E60;&#xFF0C;&#x53EF;&#x4EE5;&#x53C2;&#x8003;&#x524D;&#x9762;&#x5199;&#x7684;&#x535A;&#x5BA2;~</p>
+<ul>
+<li><a href="../1_ElasticSearch&#x4ECB;&#x7ECD;&#x4E0E;&#x5B89;&#x88C5;/">ElasticSearch&#x4ECB;&#x7ECD;&#x4E0E;&#x5B89;&#x88C5;</a></li>
+<li><a href="../2_Beats&#x5165;&#x95E8;&#x7B80;&#x4ECB;/">Beats&#x5165;&#x95E8;&#x7B80;&#x4ECB;</a></li>
+<li><a href="../3_Kibana&#x5B89;&#x88C5;&#x4E0E;&#x4ECB;&#x7ECD;/">Kibana&#x5B89;&#x88C5;&#x4E0E;&#x4ECB;&#x7ECD;</a></li>
+<li><a href="../4_Logstash&#x5165;&#x95E8;&#x7B80;&#x4ECB;/">Logstash&#x5165;&#x95E8;&#x7B80;&#x4ECB;</a></li>
+<li><a href="../5_ElasticStack&#x7EFC;&#x5408;&#x6848;&#x4F8B;/">ElasticStack&#x7EFC;&#x5408;&#x6848;&#x4F8B;</a></li>
+</ul>
+<h2 id="&#x62C9;&#x53D6;elasticstack&#x955C;&#x50CF;"><a name="&#x62C9;&#x53D6;elasticstack&#x955C;&#x50CF;" class="anchor-navigation-ex-anchor" href="#&#x62C9;&#x53D6;elasticstack&#x955C;&#x50CF;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x62C9;&#x53D6;ElasticStack&#x955C;&#x50CF;</h2>
+<p>&#x901A;&#x8FC7;&#x672C;&#x6559;&#x7A0B;&#xFF0C;&#x53EF;&#x4EE5;&#x975E;&#x5E38;&#x65B9;&#x4FBF;&#x7684;&#x7ED9;&#x8611;&#x83C7;&#x535A;&#x5BA2;&#x9879;&#x76EE;&#xFF0C;&#x96C6;&#x6210;ELK&#x7528;&#x4E8E;&#x5206;&#x5E03;&#x5F0F;&#x65E5;&#x5FD7;&#x6536;&#x96C6;</p>
+<p>&#x4E3A;&#x4E86;&#x66F4;&#x52A0;&#x65B9;&#x4FBF;&#x7684;&#x90E8;&#x7F72;ELK&#x73AF;&#x5883;&#xFF0C;&#x6211;&#x5DF2;&#x7ECF;&#x63D0;&#x524D;&#x5C06;&#x73AF;&#x5883;&#x6253;&#x5305;&#x6210;&#x4E86;Docker&#x955C;&#x50CF;&#xFF0C;&#x53D1;&#x5E03;&#x5230;&#x4E86;DockerHub&#x4E2D;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x53EA;&#x9700;&#x8981;&#x62C9;&#x53D6;&#x6211;&#x63D0;&#x524D;&#x5236;&#x4F5C;&#x7684;ElasticStack&#x955C;&#x50CF;&#x5373;&#x53EF;</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># &#x62C9;&#x53D6;&#x955C;&#x50CF;</span>
+docker pull moxi/elastic_stack
+
+<span class="hljs-comment"># &#x67E5;&#x770B;&#x955C;&#x50CF;</span>
+docker images;
+</code></pre>
+<p>&#x62C9;&#x53D6;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x67E5;&#x770B;&#x6211;&#x4EEC;&#x7684;&#x955C;&#x50CF;&#x4FE1;&#x606F;&#xFF0C;&#x5BB9;&#x91CF;&#x5927;&#x6982;&#x5728;4.16G&#x5DE6;&#x53F3;</p>
+<p><a href="images/image-20200925203411844.png" data-lightbox="ebc3c4d3-b8c5-4ad8-97aa-d2ce8b0cdb10" data-title="image-20200925203411844"><img src="images/image-20200925203411844.png" alt="image-20200925203411844"></a></p>
+<h2 id="&#x5236;&#x4F5C;&#x5BB9;&#x5668;"><a name="&#x5236;&#x4F5C;&#x5BB9;&#x5668;" class="anchor-navigation-ex-anchor" href="#&#x5236;&#x4F5C;&#x5BB9;&#x5668;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5236;&#x4F5C;&#x5BB9;&#x5668;</h2>
+<p>&#x5728;&#x6211;&#x4EEC;&#x62C9;&#x53D6;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x5F00;&#x59CB;&#x901A;&#x8FC7;&#x955C;&#x50CF;&#x5236;&#x4F5C;&#x6211;&#x4EEC;&#x7684;ElasticStack&#x5BB9;&#x5668;&#x4E86;</p>
+<pre><code class="lang-bash">docker run --privileged <span class="hljs-_">-d</span> -it -h elastic_stack --name elastic_stack -v /etc/localtime:/etc/localtime:ro -p 11122:22 -p 9200:9200 -p 5601:5601  -p 5044:5044 -p 9600:9600 moxi/elastic_stack /usr/sbin/init
+</code></pre>
+<p>&#x5176;&#x4E2D;&#x8FD9;&#x91CC;&#x4E3B;&#x8981;&#x4F7F;&#x7528;&#x7684;&#x7AEF;&#x53E3;&#x53F7;&#x6709;</p>
+<ul>
+<li>11122&#xFF1A;&#x7528;&#x4E8E;&#x5EFA;&#x7ACB;ssh&#x8FDE;&#x63A5;&#x5185;&#x90E8;&#x5BB9;&#x5668;</li>
+<li>9200&#xFF1A;ElasticSearch&#x9ED8;&#x8BA4;&#x7AEF;&#x53E3;&#x53F7;</li>
+<li>5601&#xFF1A;Kibana&#x9ED8;&#x8BA4;&#x7AEF;&#x53E3;&#x53F7;</li>
+<li>5044&#xFF1A;Logstash&#x9ED8;&#x8BA4;&#x7AEF;&#x53E3;&#x53F7;</li>
+</ul>
+<p>&#x6267;&#x884C;&#x5B8C;&#x4E0A;&#x9762;&#x7684;&#x547D;&#x4EE4;&#x540E;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x9519;&#x8BEF;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x4EE3;&#x8868;&#x6267;&#x884C;&#x6210;&#x529F;</p>
+<p><a href="images/image-20200925204214191.png" data-lightbox="1a31e95f-1602-47ed-8351-30622a44103b" data-title="image-20200925204214191"><img src="images/image-20200925204214191.png" alt="image-20200925204214191"></a></p>
+<p>&#x7136;&#x540E;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5728;&#x542F;&#x52A8;&#x4E00;&#x4E2A;xshell&#x7A97;&#x53E3;&#xFF0C;&#x8FDE;&#x63A5;&#x6211;&#x4EEC;&#x7684;&#x5BB9;&#x5668;&#x4E86;</p>
+<p><a href="images/image-20200925204336586.png" data-lightbox="655e3930-0d0c-415d-aa4e-52d02ac478ed" data-title="image-20200925204336586"><img src="images/image-20200925204336586.png" alt="image-20200925204336586"></a></p>
+<p>&#x8F93;&#x5165;&#x4F60;&#x670D;&#x52A1;&#x5668;&#x7684;ip&#x5730;&#x5740;&#xFF0C;&#x4EE5;&#x53CA;&#x7AEF;&#x53E3;&#x53F7;&#x4E3A; 11122&#xFF0C;&#x7136;&#x540E;&#x70B9;&#x51FB;&#x786E;&#x5B9A;&#xFF0C;&#x7136;&#x540E;&#x5728;&#x8F93;&#x5165;&#x670D;&#x52A1;&#x5668;&#x7684;&#x8D26;&#x53F7;&#x548C;&#x5BC6;&#x7801;</p>
+<ul>
+<li>&#x8D26;&#x53F7;&#xFF1A;root</li>
+<li>&#x5BC6;&#x7801;&#xFF1A;mogu2018</li>
+</ul>
+<p>&#x5373;&#x53EF;&#x8FDB;&#x5165;&#x5230;&#x6211;&#x4EEC;&#x7684;&#x5BB9;&#x5668;&#x5185;&#x90E8;&#xFF0C;&#x6211;&#x4EEC;&#x5230;/soft&#x76EE;&#x5F55;&#x4E0B;&#xFF0C;&#x80FD;&#x770B;&#x5230;&#x91CC;&#x9762;&#x5B89;&#x88C5;&#x7684;&#x8F6F;&#x4EF6;</p>
+<p><a href="images/image-20200930092513748.png" data-lightbox="c47249cc-6f28-4ba3-9f23-61c6ada1bdc2" data-title="image-20200930092513748"><img src="images/image-20200930092513748.png" alt="image-20200930092513748"></a></p>
+<ul>
+<li>ElasticSearch&#xFF1A;&#x5206;&#x5E03;&#x5F0F;&#x641C;&#x7D22;&#x5F15;&#x64CE;</li>
+<li>jdk&#xFF1A;java1.8</li>
+<li>kibana&#xFF1A;&#x56FE;&#x5F62;&#x5316;&#x5DE5;&#x5177;</li>
+<li>logstash&#xFF1A;&#x7528;&#x4E8E;&#x6570;&#x636E;&#x7684;&#x8FC7;&#x6EE4;&#x548C;&#x5904;&#x7406;</li>
+</ul>
+<h2 id="&#x542F;&#x52A8;elasticsearch"><a name="&#x542F;&#x52A8;elasticsearch" class="anchor-navigation-ex-anchor" href="#&#x542F;&#x52A8;elasticsearch"><i class="fa fa-link" aria-hidden="true"></i></a>&#x542F;&#x52A8;ElasticSearch</h2>
+<p>&#x56E0;&#x4E3A;ElasticSearch&#x7684;&#x542F;&#x52A8;&#x914D;&#x7F6E;&#x8981;&#x6C42;&#x6BD4;&#x8F83;&#x9AD8;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x4FEE;&#x6539;&#x4E00;&#x4E9B;&#x914D;&#x7F6E;&#xFF0C;&#x9996;&#x5148;&#x6211;&#x4EEC;&#x5230;&#x5BBF;&#x4E3B;&#x673A;&#x3010;&#x662F;&#x521A;&#x521A;&#x5B89;&#x88C5;Docker&#x7684;&#x673A;&#x5668;&#xFF0C;&#x4E0D;&#x662F;&#x73B0;&#x5728;&#x5BB9;&#x5668;&#x91CC;&#x9762;&#xFF01;&#xFF01;&#x3011;</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># &#x5230;&#x5BBF;&#x4E3B;&#x673A;&#x4E0A;&#x6253;&#x5F00;&#x6587;&#x4EF6;</span>
+vim /etc/sysctl.conf
+
+<span class="hljs-comment"># &#x589E;&#x52A0;&#x8FD9;&#x6837;&#x4E00;&#x6761;&#x914D;&#x7F6E;&#xFF0C;&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;&#x5728;VMAs(&#x865A;&#x62DF;&#x5185;&#x5B58;&#x533A;&#x57DF;)&#x521B;&#x5EFA;&#x5185;&#x5B58;&#x6620;&#x5C04;&#x6700;&#x5927;&#x6570;&#x91CF;</span>
+vm.max_map_count=655360
+
+<span class="hljs-comment"># &#x8BA9;&#x914D;&#x7F6E;&#x751F;&#x6548;</span>
+sysctl -p
+</code></pre>
+<p>&#x7136;&#x540E;&#x518D;&#x53BB;&#x542F;&#x52A8;ElasticSearch&#xFF0C;&#x56E0;&#x4E3A;ElasticSearch&#x4E0D;&#x80FD;&#x4F7F;&#x7528;root&#x7528;&#x6237;&#x76F4;&#x63A5;&#x542F;&#x52A8;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x5207;&#x6362;&#x5230;elsearch</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># &#x5207;&#x6362;&#x7528;&#x6237;</span>
+su elsearch
+
+<span class="hljs-comment"># &#x8FDB;&#x5165;&#x5230;ElasticSearch&#x76EE;&#x5F55;</span>
+<span class="hljs-built_in">cd</span> elsearch
+
+<span class="hljs-comment"># &#x542F;&#x52A8;</span>
+./bin/elasticsearch
+
+<span class="hljs-comment"># &#x540E;&#x53F0;&#x542F;&#x52A8;</span>
+./bin/elasticsearch <span class="hljs-_">-d</span>
+</code></pre>
+<p>&#x542F;&#x52A8;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x770B;&#x5230;ElasticSearch&#x8FD0;&#x884C;&#x5728;9200&#x7AEF;&#x53E3;&#x4E0A;</p>
+<p><a href="images/image-20200925205336945.png" data-lightbox="edde2ddb-fa6b-434f-9d3c-167c3ba80b33" data-title="image-20200925205336945"><img src="images/image-20200925205336945.png" alt="image-20200925205336945"></a></p>
+<p>&#x6211;&#x4EEC;&#x8F93;&#x5165;&#x4E0B;&#x9762;&#x7684;&#x5730;&#x5740;&#x5230;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x8BBF;&#x95EE;</p>
+<pre><code class="lang-bash">http://your_ip:9200/
+</code></pre>
+<p>&#x5982;&#x679C;&#x51FA;&#x73B0;&#x4E0B;&#x9762;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x8868;&#x793A;ElasticSearch&#x670D;&#x52A1;&#x5DF2;&#x7ECF;&#x6B63;&#x5E38;&#x542F;&#x52A8;~</p>
+<p><a href="images/image-20200925205443777.png" data-lightbox="21342ccf-c51b-4397-8b85-9d7a50089088" data-title="image-20200925205443777"><img src="images/image-20200925205443777.png" alt="image-20200925205443777"></a></p>
+<h2 id="&#x542F;&#x52A8;logstash"><a name="&#x542F;&#x52A8;logstash" class="anchor-navigation-ex-anchor" href="#&#x542F;&#x52A8;logstash"><i class="fa fa-link" aria-hidden="true"></i></a>&#x542F;&#x52A8;Logstash</h2>
+<p>Logstash&#x7684;&#x4F5C;&#x7528;&#x5C31;&#x662F;&#x6536;&#x96C6;Beats&#x53D1;&#x9001;&#x8FC7;&#x6765;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x7136;&#x540E;&#x8FDB;&#x884C;&#x5904;&#x7406;&#xFF0C;&#x5904;&#x7406;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x5728;&#x5C06;&#x5176;&#x63A8;&#x9001;&#x5230;ElasticSearch&#x4E2D;&#xFF0C;&#x5982;&#x679C;&#x9700;&#x8981;&#x67E5;&#x770B;&#x66F4;&#x591A;&#x7684;&#x5173;&#x4E8E;Logstash&#xFF0C;&#x53EF;&#x4EE5;&#x8DF3;&#x8F6C;&#x5230;&#x4E0A;&#x9762;&#x63D0;&#x5230;&#x7684;&#x535A;&#x5BA2;&#x4E2D;</p>
+<p>&#x6211;&#x4EEC;&#x9996;&#x5148;&#x5230;Logstash&#x76EE;&#x5F55;</p>
+<pre><code class="lang-bash"><span class="hljs-built_in">cd</span> /soft/logstash
+</code></pre>
+<p>&#x7136;&#x540E;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x67E5;&#x770B;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</p>
+<pre><code class="lang-bash">vim mogu-dashboard.conf
+</code></pre>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x6211;&#x4E4B;&#x524D;&#x914D;&#x7F6E;&#x7684;&#x4FE1;&#x606F;</p>
+<pre><code class="lang-bash">input {
+        beats {
+                port =&gt; <span class="hljs-string">&quot;5044&quot;</span>
+        }
+}
+filter {
+        mutate {
+                split =&gt; {<span class="hljs-string">&quot;message&quot;</span>=&gt;<span class="hljs-string">&quot;|&quot;</span>}
+        }
+        mutate {
+                add_field =&gt; {
+                <span class="hljs-string">&quot;userId&quot;</span> =&gt; <span class="hljs-string">&quot;%{[message][1]}&quot;</span>
+                <span class="hljs-string">&quot;visit&quot;</span> =&gt; <span class="hljs-string">&quot;%{[message][2]}&quot;</span>
+                <span class="hljs-string">&quot;date&quot;</span> =&gt; <span class="hljs-string">&quot;%{[message][3]}&quot;</span>
+                }
+        }
+        mutate {
+                convert =&gt; {
+                <span class="hljs-string">&quot;userId&quot;</span> =&gt; <span class="hljs-string">&quot;integer&quot;</span>
+                <span class="hljs-string">&quot;visit&quot;</span> =&gt; <span class="hljs-string">&quot;string&quot;</span>
+                <span class="hljs-string">&quot;date&quot;</span> =&gt; <span class="hljs-string">&quot;string&quot;</span>
+                }
+        }
+        mutate {
+           remove_field =&gt; [ <span class="hljs-string">&quot;host&quot;</span> ]
+        }
+}
+<span class="hljs-comment">#output {</span>
+<span class="hljs-comment"># stdout { codec =&gt; rubydebug }</span>
+<span class="hljs-comment">#}</span>
+
+output {
+    <span class="hljs-keyword">if</span> [from] == <span class="hljs-string">&apos;mogu_web&apos;</span> {
+        elasticsearch {
+          hosts =&gt; [<span class="hljs-string">&quot;127.0.0.1:9200&quot;</span>]
+          index =&gt; <span class="hljs-string">&quot;logstash_mogu_web_%{+YYYY.MM.dd}&quot;</span>
+        }
+    }
+
+    <span class="hljs-keyword">if</span> [from] == <span class="hljs-string">&quot;mogu_admin&quot;</span> {
+        elasticsearch {
+          hosts =&gt; [<span class="hljs-string">&quot;127.0.0.1:9200&quot;</span>]
+          index =&gt; <span class="hljs-string">&quot;logstash_mogu_admin_%{+YYYY.MM.dd}&quot;</span>
+        }
+    }
+
+    <span class="hljs-keyword">if</span> [from] == <span class="hljs-string">&quot;mogu_sms&quot;</span> {
+        elasticsearch {
+          hosts =&gt; [<span class="hljs-string">&quot;127.0.0.1:9200&quot;</span>]
+          index =&gt; <span class="hljs-string">&quot;logstash_mogu_sms_%{+YYYY.MM.dd}&quot;</span>
+        }
+    }
+
+    <span class="hljs-keyword">if</span> [from] == <span class="hljs-string">&quot;mogu_picture&quot;</span> {
+        elasticsearch {
+          hosts =&gt; [<span class="hljs-string">&quot;127.0.0.1:9200&quot;</span>]
+          index =&gt; <span class="hljs-string">&quot;logstash_mogu_picture_%{+YYYY.MM.dd}&quot;</span>
+        }
+    }
+
+    <span class="hljs-keyword">if</span> [from] == <span class="hljs-string">&quot;mogu_nginx&quot;</span> {
+        elasticsearch {
+          hosts =&gt; [<span class="hljs-string">&quot;127.0.0.1:9200&quot;</span>]
+          index =&gt; <span class="hljs-string">&quot;logstash_mogu_nginx_%{+YYYY.MM.dd}&quot;</span>
+        }
+    }
+}
+</code></pre>
+<blockquote>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x83B7;&#x53D6;&#x5230;&#x4F20;&#x9012;&#x8FC7;&#x6765;&#x7684;from&#x5B57;&#x6BB5;&#xFF0C;&#x5C31;&#x662F;&#x5728;filebeat&#x65F6;&#x5019;&#x6307;&#x5B9A;&#x7684; &#x4E00;&#x4E2A;&#x5B57;&#x6BB5;&#xFF0C;&#x4EE3;&#x8868;&#x662F;&#x8FD9;&#x6761;&#x65E5;&#x5FD7;&#x5C5E;&#x4E8E;&#x54EA;&#x4E2A;&#x6A21;&#x5757;&#x7684;&#xFF0C;&#x7136;&#x540E;&#x5728;&#x6839;&#x636E;logstash&#x7684;if&#x5224;&#x65AD;&#xFF0C;&#x7136;&#x540E;&#x751F;&#x6210;&#x4E0D;&#x540C;&#x7684;ElasticSearch&#x7D22;&#x5F15;</p>
+</blockquote>
+<p><a href="images/image-20200927144647484.png" data-lightbox="0fe4f313-0caa-4bdb-8619-1a07a5c46a04" data-title="image-20200927144647484"><img src="images/image-20200927144647484.png" alt="image-20200927144647484"></a></p>
+<p>&#x4E0B;&#x9762;&#xFF0C;&#x6211;&#x4EEC;&#x6307;&#x5B9A;&#x8BE5;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x540E;&#xFF0C;&#x7136;&#x540E;&#x542F;&#x52A8;&#x9879;&#x76EE;</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># &#x524D;&#x53F0;&#x542F;&#x52A8;</span>
+./bin/logstash <span class="hljs-_">-f</span> ./mogu-dashboard.conf
+
+<span class="hljs-comment"># &#x540E;&#x53F0;&#x542F;&#x52A8;</span>
+nohup ./bin/logstash <span class="hljs-_">-f</span> ./mogu-dashboard.conf  &gt; catalina.out  2&gt;&amp;1 &amp;
+</code></pre>
+<p>&#x6CE8;&#x610F;&#xFF1A;logstash&#x7684;&#x542F;&#x52A8;&#x53EF;&#x80FD;&#x4F1A;&#x6BD4;&#x8F83;&#x6162;&#xFF0C;&#x9700;&#x8981;&#x8010;&#x5FC3;&#x7684;&#x7B49;&#x5F85;&#x4E00;&#x4F1A;~</p>
+<p><a href="images/image-20200925210154370.png" data-lightbox="a7559b48-fedf-42d9-a4a0-1ca0839893b2" data-title="image-20200925210154370"><img src="images/image-20200925210154370.png" alt="image-20200925210154370"></a></p>
+<p>&#x542F;&#x52A8;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x4F1A;&#x5360;&#x7528;9600&#x7AEF;&#x53E3;~&#xFF0C;&#x540C;&#x65F6;&#x7ECF;&#x8FC7;logstash&#x7684;&#x6570;&#x636E;&#x90FD;&#x4F1A;&#x53D1;&#x9001;&#x5230;ElasticSearch&#x4E2D;</p>
+<h2 id="&#x542F;&#x52A8;beats"><a name="&#x542F;&#x52A8;beats" class="anchor-navigation-ex-anchor" href="#&#x542F;&#x52A8;beats"><i class="fa fa-link" aria-hidden="true"></i></a>&#x542F;&#x52A8;Beats</h2>
+<h3 id="&#x542F;&#x52A8;filebeat"><a name="&#x542F;&#x52A8;filebeat" class="anchor-navigation-ex-anchor" href="#&#x542F;&#x52A8;filebeat"><i class="fa fa-link" aria-hidden="true"></i></a>&#x542F;&#x52A8;filebeat</h3>
+<p>filebeat&#x662F;&#x4E00;&#x4E2A;&#x8F7B;&#x91CF;&#x7EA7;&#x7684;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x6536;&#x96C6;&#x5668;&#xFF0C;&#x4E3B;&#x8981;&#x7528;&#x4E8E;&#x6536;&#x96C6;&#x6211;&#x4EEC;&#x7684;&#x4E00;&#x4E9B;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x3010;&#x5B83;&#x548C;&#x5E94;&#x7528;&#x670D;&#x52A1;&#x5668;&#x5B58;&#x653E;&#x5728;&#x4E00;&#x8D77;&#x3011;</p>
+<blockquote>
+<p>&#x9700;&#x8981;&#x6CE8;&#x610F;&#xFF0C;Beats&#x4E0D;&#x5728;&#x6211;&#x4EEC;ELK&#x670D;&#x52A1;&#x5668;&#x4E0A;&#x8FDB;&#x884C;&#x542F;&#x52A8;&#x4E86;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x5230;&#x90E8;&#x7F72;&#x8611;&#x83C7;&#x535A;&#x5BA2;&#x7684;&#x670D;&#x52A1;&#x5668;&#x4E0A;&#xFF0C;&#x7136;&#x540E;&#x627E;&#x5230;Beats&#x76EE;&#x5F55;</p>
+</blockquote>
+<p><a href="images/image-20200930092617884.png" data-lightbox="3e900154-6842-4a86-9709-8c189bcd193c" data-title="image-20200930092617884"><img src="images/image-20200930092617884.png" alt="image-20200930092617884"></a></p>
+<p>&#x6211;&#x4EEC;&#x9996;&#x5148;&#x9700;&#x8981;&#x5230;&#x6211;&#x4EEC;&#x5E94;&#x7528;&#x670D;&#x52A1;&#x5668;&#x4E2D;&#xFF0C;&#x7136;&#x540E;&#x542F;&#x52A8;filebeats &#x3010;&#x5982;&#x679C;&#x4F60;&#x7684;&#x76EE;&#x5F55;&#x4E0B;&#x6CA1;&#x6709;&#xFF0C;&#x53EF;&#x4EE5;&#x53C2;&#x8003; <a href="../2_Beats&#x5165;&#x95E8;&#x7B80;&#x4ECB;/">Beats&#x5165;&#x95E8;&#x7B80;&#x4ECB;</a> &#x5B89;&#x88C5;&#x3011;</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># &#x8FDB;&#x5165;&#x5230;filebeat&#x76EE;&#x5F55;</span>
+<span class="hljs-built_in">cd</span> /soft/beats/filebeat
+</code></pre>
+<p>&#x7136;&#x540E;&#x67E5;&#x770B;&#x6211;&#x4EEC;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</p>
+<pre><code class="lang-bash">vim mogu-dashboard.yml
+</code></pre>
+<p>&#x7136;&#x540E;&#x4FEE;&#x6539;&#x6211;&#x4EEC;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;logstash&#x7684;&#x5730;&#x5740;&#xFF0C;&#x6211;&#x4EEC;&#x8981;&#x628A;&#x5B83;&#x6539;&#x6210;&#x521A;&#x521A;&#x90E8;&#x7F72;&#x7684;logstash&#x670D;&#x52A1;&#x5668;&#x7684;ip&#x5373;&#x53EF;</p>
+<pre><code class="lang-bash">filebeat.inputs:
+- <span class="hljs-built_in">type</span>: <span class="hljs-built_in">log</span>
+  enabled: <span class="hljs-literal">true</span>
+  paths:
+    - /home/mogu_blog/mogu_web/catalina.out
+  fields:
+    from: mogu_web
+  fields_under_root: <span class="hljs-literal">true</span>
+
+- <span class="hljs-built_in">type</span>: <span class="hljs-built_in">log</span>
+  enabled: <span class="hljs-literal">true</span>
+  paths:
+    - /home/mogu_blog/mogu_admin/catalina.out
+  fields:
+    from: mogu_admin
+  fields_under_root: <span class="hljs-literal">true</span>
+
+- <span class="hljs-built_in">type</span>: <span class="hljs-built_in">log</span>
+  enabled: <span class="hljs-literal">true</span>
+  paths:
+    - /home/mogu_blog/mogu_sms/catalina.out
+  fields:
+    from: mogu_sms
+  fields_under_root: <span class="hljs-literal">true</span>
+
+- <span class="hljs-built_in">type</span>: <span class="hljs-built_in">log</span>
+  enabled: <span class="hljs-literal">true</span>
+  paths:
+    - /home/mogu_blog/mogu_picture/catalina.out
+  fields:
+    from: mogu_picture
+  fields_under_root: <span class="hljs-literal">true</span>
+
+setup.template.settings:
+  index.number_of_shards: 1
+output.logstash:
+  hosts: [<span class="hljs-string">&quot;101.132.122.175:5044&quot;</span>]
+</code></pre>
+<p>&#x7136;&#x540E;&#x542F;&#x52A8;&#x6211;&#x4EEC;&#x7684;filebeat</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># &#x524D;&#x53F0;&#x542F;&#x52A8;</span>
+./filebeat <span class="hljs-_">-e</span> -c mogu-dashboard.yml
+
+<span class="hljs-comment"># &#x540E;&#x53F0;&#x542F;&#x52A8;</span>
+<span class="hljs-meta">#!/bin/bash </span>
+nohup ./filebeat <span class="hljs-_">-e</span> -c mogu-dashboard.yml &gt; catalina.out  2&gt;&amp;1 &amp;
+</code></pre>
+<p>&#x542F;&#x52A8;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x80FD;&#x591F;&#x770B;&#x5230;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x5DF2;&#x7ECF;&#x88AB;&#x52A0;&#x8F7D;</p>
+<p><a href="images/image-20200927144808408.png" data-lightbox="b02b5020-4c21-4e6b-8e52-0752dc3c3bbe" data-title="image-20200927144808408"><img src="images/image-20200927144808408.png" alt="image-20200927144808408"></a></p>
+<h2 id="&#x542F;&#x52A8;kibana"><a name="&#x542F;&#x52A8;kibana" class="anchor-navigation-ex-anchor" href="#&#x542F;&#x52A8;kibana"><i class="fa fa-link" aria-hidden="true"></i></a>&#x542F;&#x52A8;Kibana</h2>
+<p>Kibana&#x7684;&#x4F5C;&#x7528;&#x5C31;&#x662F;&#x5BF9;&#x6211;&#x4EEC;&#x7684;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x56FE;&#x5F62;&#x5316;&#x7684;&#x663E;&#x793A;&#xFF0C;&#x9996;&#x5148;&#x6211;&#x4EEC;&#x5230;Kibana&#x76EE;&#x5F55; &#x3010;&#x56DE;&#x5230;ELK&#x76EE;&#x5F55;&#x4E0B;&#x3011;</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># &#x5230;kibana&#x5B89;&#x88C5;&#x76EE;&#x5F55;</span>
+<span class="hljs-built_in">cd</span> /soft/kibana
+</code></pre>
+<p>&#x56E0;&#x4E3A;Kibana&#x548C;ElasticSearch&#x4E00;&#x6837;&#xFF0C;&#x4E0D;&#x652F;&#x6301;root&#x7528;&#x6237;&#x542F;&#x52A8;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x7EE7;&#x7EED;&#x5207;&#x6362;&#x6210;elsearch&#x7528;&#x6237;</p>
+<pre><code class="lang-bash">su elsearch
+</code></pre>
+<p>&#x7136;&#x540E;&#x542F;&#x52A8;</p>
+<pre><code class="lang-bash">./bin/kibana
+</code></pre>
+<p>&#x67E5;&#x770B;&#x542F;&#x52A8;&#x4FE1;&#x606F;&#xFF0C;&#x6211;&#x4EEC;&#x53D1;&#x73B0;Kibana&#x542F;&#x52A8;&#x5728;5601&#x7AEF;&#x53E3;&#x53F7;</p>
+<p><a href="images/image-20200925210626499.png" data-lightbox="ed42cab4-3753-4f9b-8783-0f599dae5754" data-title="image-20200925210626499"><img src="images/image-20200925210626499.png" alt="image-20200925210626499"></a></p>
+<p>&#x542F;&#x52A8;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x8BBF;&#x95EE;&#x6211;&#x4EEC;&#x7684;&#x5730;&#x5740;</p>
+<pre><code class="lang-bash">http://your_ip:5601
+</code></pre>
+<p><a href="images/image-20200925210805478.png" data-lightbox="28c8ea2b-39cc-44c6-9e7c-12e474047781" data-title="image-20200925210805478"><img src="images/image-20200925210805478.png" alt="image-20200925210805478"></a></p>
+<p>&#x6211;&#x4EEC;&#x627E;&#x5230;dashboard&#x5C31;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x8611;&#x83C7;&#x535A;&#x5BA2;&#x7684;&#x65E5;&#x5FD7;&#x8BB0;&#x5F55;&#x4E86;</p>
+<p><a href="images/image-20200927145854642.png" data-lightbox="c8cf274b-1887-46fb-a27b-d3ca50dd37aa" data-title="image-20200927145854642"><img src="images/image-20200927145854642.png" alt="image-20200927145854642"></a></p>
+<blockquote>
+<p>tip&#xFF1A;&#x8FD9;&#x91CC;&#x5C31;&#x53EA;&#x4ECB;&#x7ECD;&#x4E86;ElasticStack&#x7684;&#x65E5;&#x5FD7;&#x6536;&#x96C6;&#xFF0C;&#x5173;&#x4E8E;&#x66F4;&#x591A;&#x7684;Kibana&#x56FE;&#x5F62;&#x5316;&#x9875;&#x9762;&#xFF0C;&#x5C0F;&#x4F19;&#x4F34;&#x53EF;&#x4EE5;&#x53C2;&#x8003;&#x5176;&#x5B83;&#x6587;&#x4EF6;&#x8FDB;&#x884C;&#x914D;&#x7F6E;&#xFF0C;&#x8FD9;&#x91CC;&#x5C31;&#x4E0D;&#x5217;&#x4E3E;&#x51FA;&#x6765;&#x5566;~</p>
+</blockquote>
+</body></html>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../5_ElasticStack综合案例/" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 5_ElasticStack综合案例">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"6_使用ELK搭建蘑菇博客日志收集","level":"3.7","depth":1,"next":{"title":"0_完整课件","level":"3.8","depth":1,"ref":"","articles":[{"title":"part01","level":"3.8.1","depth":2,"path":"hm/0_pdf课件/note01.md","ref":"hm/0_pdf课件/note01.md","articles":[]},{"title":"part02","level":"3.8.2","depth":2,"path":"hm/0_pdf课件/note02.md","ref":"hm/0_pdf课件/note02.md","articles":[]}]},"previous":{"title":"5_ElasticStack综合案例","level":"3.6","depth":1,"path":"hm/5_ElasticStack综合案例/README.md","ref":"hm/5_ElasticStack综合案例/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hide-element","chapter-fold","expandable-chapters","favicon","lightbox","splitter","-lunr","pageview-count","ancre-navigation"],"pluginsConfig":{"chapter-fold":{},"splitter":{},"search":{},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":{"shortcut":"./img/avator.png.icon.ico","bookmark":"./img/avator.png.icon.ico"},"lightbox":{"jquery":true,"sameUuid":false},"pageview-count":{},"ancre-navigation":{"showLevel":true,"associatedWithSummary":true,"mode":"float","printLog":false,"multipleH1":true,"float":{"showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""},"pageTop":{"showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"hm/6_使用ELK搭建蘑菇博客日志收集/README.md","mtime":"2021-04-01T05:32:12.777Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-04-01T06:20:30.305Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-hide-element/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lightbox/js/lightbox.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
