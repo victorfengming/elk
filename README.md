@@ -10,3 +10,4 @@
 官方文档: 
 [传送门](https://www.elastic.co/guide/en/elasticsearch/reference/6.0/_installation.html)
 
+![](README.assets/1598359351922.png)
