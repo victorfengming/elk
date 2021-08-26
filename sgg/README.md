@@ -583,6 +583,132 @@ Response code: 201 (Created); Time: 101ms; Content length: 159 bytes
 
 # 011-入门-HTTP-查询-主键查询 & 全查询
 
+## 主键查询(上来先GET)
+
+### 存在的
+
+```shell
+GET http://10.221.154.185:9003/shopping/_doc/1001
+
+HTTP/1.1 200 OK
+content-type: application/json; charset=UTF-8
+
+{
+  "_index": "shopping",
+  "_type": "_doc",
+  "_id": "1001",
+  "_version": 1,
+  "_seq_no": 1,
+  "_primary_term": 1,
+  "found": true,
+  "_source": {
+    "name": "tom",
+    "sex": "cat",
+    "age": "13",
+    "image": "beautiful"
+  }
+}
+
+Response code: 200 (OK); Time: 100ms; Content length: 190 bytes
+
+```
+
+### 如果不存在
+
+```shell
+GET http://10.221.154.185:9003/shopping/_doc/2001
+
+HTTP/1.1 404 Not Found
+content-type: application/json; charset=UTF-8
+
+{
+  "_index": "shopping",
+  "_type": "_doc",
+  "_id": "2001",
+  "found": false
+}
+
+Response code: 404 (Not Found); Time: 94ms; Content length: 63 bytes
+
+```
+
+## 全部查询(search)
+
+```shell
+GET http://10.221.154.185:9003/shopping/_search
+
+HTTP/1.1 200 OK
+content-type: application/json; charset=UTF-8
+
+{
+  "took": 1,
+  "timed_out": false,
+  "_shards": {
+    "total": 5,
+    "successful": 5,
+    "skipped": 0,
+    "failed": 0
+  },
+  "hits": {
+    "total": 4,
+    "max_score": 1.0,
+    "hits": [
+      {
+        "_index": "shopping",
+        "_type": "_doc",
+        "_id": "CqRugHsBT86PdrEa5xLI",
+        "_score": 1.0,
+        "_source": {
+          "name": "nancy",
+          "sex": "女",
+          "age": "22",
+          "image": "beauty"
+        }
+      },
+      {
+        "_index": "shopping",
+        "_type": "_doc",
+        "_id": "1001",
+        "_score": 1.0,
+        "_source": {
+          "name": "tom",
+          "sex": "cat",
+          "age": "13",
+          "image": "beautiful"
+        }
+      },
+      {
+        "_index": "shopping",
+        "_type": "_doc",
+        "_id": "xKRsgHsBT86PdrEa7xBP",
+        "_score": 1.0,
+        "_source": {
+          "name": "nancy",
+          "sex": "女",
+          "age": "22",
+          "image": "beauty"
+        }
+      },
+      {
+        "_index": "shopping",
+        "_type": "_doc",
+        "_id": "1002",
+        "_score": 1.0,
+        "_source": {
+          "name": "tom",
+          "sex": "cat",
+          "age": "13",
+          "image": "beautiful"
+        }
+      }
+    ]
+  }
+}
+
+Response code: 200 (OK); Time: 120ms; Content length: 763 bytes
+
+```
+
 
 
 # 012-入门-HTTP-全量修改 & 局部修改 & 删除

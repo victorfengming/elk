@@ -84,3 +84,45 @@ Content-Type: application/json
   "age": "13",
   "image": "beautiful"
 }
+
+
+
+
+###
+GET http://10.221.154.185:9003/shopping/_doc/1001
+Accept: application/json
+Content-Type: application/json
+
+
+{
+  "name": "tom",
+  "sex": "cat",
+  "age": "13",
+  "image": "beautiful"
+}
+
+
+###
+GET http://10.221.154.185:9003/shopping/_doc/2001
+Accept: application/json
+Content-Type: application/json
+
+
+{
+  "name": "tom",
+  "sex": "cat",
+  "age": "13",
+  "image": "beautiful"
+}
+
+
+###
+GET http://10.221.154.185:9003/shopping/_search
+Accept: application/json
+Content-Type: application/json
+
+
+{
+
+}
+
