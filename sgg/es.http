@@ -159,6 +159,78 @@ Accept: application/json
 Content-Type: application/json
 
 
-{
 
+###
+GET http://10.221.154.185:9003/shopping/_search?q=sex:cat
+Accept: application/json
+Content-Type: application/json
+
+
+{
+}
+
+###
+GET http://10.221.154.185:9003/shopping/_search
+Accept: application/json
+Content-Type: application/json
+
+
+{
+  "query": {
+    "match": {
+      "sex": "cat"
+    }
+  }
+}
+
+###
+GET http://10.221.154.185:9003/shopping/_search
+Accept: application/json
+Content-Type: application/json
+
+
+{
+  "query": {
+    "match_all": {
+    }
+  }
+}
+
+### 分页查询
+GET http://10.221.154.185:9003/shopping/_search
+Accept: application/json
+Content-Type: application/json
+
+
+{
+  "query": {
+    "match_all": {
+    }
+  },
+  "from": 0,
+  "size": 2
+}
+
+### 分页查询,指定数据源
+GET http://10.221.154.185:9003/shopping/_search
+Accept: application/json
+Content-Type: application/json
+
+
+{
+  "query": {
+    "match_all": {
+    }
+  },
+  "from": 0,
+  "size": 2,
+  "_source": [
+    "name","age"
+  ]
+  ,
+  "sort": {
+    "age": {
+      "order": "desc"
+    }
+  }
 }

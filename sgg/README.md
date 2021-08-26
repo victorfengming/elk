@@ -824,6 +824,264 @@ Response code: 404 (Not Found); Time: 137ms; Content length: 161 bytes
 
 # 013-入门-HTTP-条件查询 & 分页查询 & 查询排序
 
+## 条件查询
+
+```shell
+GET http://10.221.154.185:9003/shopping/_search?q=sex%3Acat
+
+HTTP/1.1 200 OK
+content-type: application/json; charset=UTF-8
+
+{
+  "took": 25,
+  "timed_out": false,
+  "_shards": {
+    "total": 5,
+    "successful": 5,
+    "skipped": 0,
+    "failed": 0
+  },
+  "hits": {
+    "total": 1,
+    "max_score": 0.2876821,
+    "hits": [
+      {
+        "_index": "shopping",
+        "_type": "_doc",
+        "_id": "1002",
+        "_score": 0.2876821,
+        "_source": {
+          "name": "tom",
+          "sex": "cat",
+          "age": "13",
+          "image": "beautiful"
+        }
+      }
+    ]
+  }
+}
+
+Response code: 200 (OK); Time: 134ms; Content length: 293 bytes
+
+```
+
+还可以在请求体中写
+
+```shell
+###
+GET http://10.221.154.185:9003/shopping/_search
+Accept: application/json
+Content-Type: application/json
+
+
+{
+"query": {
+  "match": {
+    "sex": "cat"
+  }
+ }
+}
+
+```
+
+```shell
+GET http://10.221.154.185:9003/shopping/_search
+
+HTTP/1.1 200 OK
+content-type: application/json; charset=UTF-8
+
+{
+  "took": 1,
+  "timed_out": false,
+  "_shards": {
+    "total": 5,
+    "successful": 5,
+    "skipped": 0,
+    "failed": 0
+  },
+  "hits": {
+    "total": 1,
+    "max_score": 0.2876821,
+    "hits": [
+      {
+        "_index": "shopping",
+        "_type": "_doc",
+        "_id": "1002",
+        "_score": 0.2876821,
+        "_source": {
+          "name": "tom",
+          "sex": "cat",
+          "age": "13",
+          "image": "beautiful"
+        }
+      }
+    ]
+  }
+}
+
+Response code: 200 (OK); Time: 137ms; Content length: 292 bytes
+
+```
+
+全量查询
+
+```shell
+###
+GET http://10.221.154.185:9003/shopping/_search
+Accept: application/json
+Content-Type: application/json
+
+
+{
+"query": {
+  "match_all": {
+  }
+ }
+}
+
+```
+
+
+
+```shell
+GET http://10.221.154.185:9003/shopping/_search
+
+HTTP/1.1 200 OK
+content-type: application/json; charset=UTF-8
+
+{
+  "took": 2,
+  "timed_out": false,
+  "_shards": {
+    "total": 5,
+    "successful": 5,
+    "skipped": 0,
+    "failed": 0
+  },
+  "hits": {
+    "total": 3,
+    "max_score": 1.0,
+    "hits": [
+      {
+        "_index": "shopping",
+        "_type": "_doc",
+        "_id": "CqRugHsBT86PdrEa5xLI",
+        "_score": 1.0,
+        "_source": {
+          "name": "nancy",
+          "sex": "女",
+          "age": "22",
+          "image": "beauty"
+        }
+      },
+      {
+        "_index": "shopping",
+        "_type": "_doc",
+        "_id": "xKRsgHsBT86PdrEa7xBP",
+        "_score": 1.0,
+        "_source": {
+          "name": "nancy",
+          "sex": "女",
+          "age": "22",
+          "image": "beauty"
+        }
+      },
+      {
+        "_index": "shopping",
+        "_type": "_doc",
+        "_id": "1002",
+        "_score": 1.0,
+        "_source": {
+          "name": "tom",
+          "sex": "cat",
+          "age": "13",
+          "image": "beautiful"
+        }
+      }
+    ]
+  }
+}
+
+Response code: 200 (OK); Time: 117ms; Content length: 615 bytes
+
+```
+
+## 分页查询
+
+```shell
+### 分页查询
+GET http://10.221.154.185:9003/shopping/_search
+Accept: application/json
+Content-Type: application/json
+
+
+{
+  "query": {
+    "match_all": {
+    }
+  },
+  "from": 0,
+  "size": 2
+
+}
+
+```
+
+> (页码-1)*每页条数
+
+```shell
+GET http://10.221.154.185:9003/shopping/_search
+
+HTTP/1.1 200 OK
+content-type: application/json; charset=UTF-8
+
+{
+  "took": 1,
+  "timed_out": false,
+  "_shards": {
+    "total": 5,
+    "successful": 5,
+    "skipped": 0,
+    "failed": 0
+  },
+  "hits": {
+    "total": 3,
+    "max_score": 1.0,
+    "hits": [
+      {
+        "_index": "shopping",
+        "_type": "_doc",
+        "_id": "CqRugHsBT86PdrEa5xLI",
+        "_score": 1.0,
+        "_source": {
+          "name": "nancy",
+          "sex": "女",
+          "age": "22",
+          "image": "beauty"
+        }
+      },
+      {
+        "_index": "shopping",
+        "_type": "_doc",
+        "_id": "xKRsgHsBT86PdrEa7xBP",
+        "_score": 1.0,
+        "_source": {
+          "name": "nancy",
+          "sex": "女",
+          "age": "22",
+          "image": "beauty"
+        }
+      }
+    ]
+  }
+}
+
+Response code: 200 (OK); Time: 213ms; Content length: 467 bytes
+
+```
+
+指定数据源
+
 
 
 # 014-入门-HTTP-多条件查询 & 范围查询
