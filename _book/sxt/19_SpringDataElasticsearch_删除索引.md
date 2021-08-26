@@ -1,1 +1,0 @@
-# 19_SpringDataElasticsearch_删除索引.
