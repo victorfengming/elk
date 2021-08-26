@@ -1,0 +1,86 @@
+
+
+###
+GET http://10.221.154.185:9003/shopping2
+Accept: application/json
+
+###
+PUT http://10.221.154.185:9003/shopping2
+Accept: application/json
+
+###
+
+
+
+###
+GET http://10.221.154.185:9003/_cat/indices?v
+Accept: application/json
+
+###
+
+POST http://10.221.154.185:9003/shopping2
+Accept: application/json
+
+###
+DELETE http://10.221.154.185:9003/shopping2
+Accept: application/json
+
+###
+
+###
+
+POST http://10.221.154.185:9003/shopping/_doc
+Accept: application/json
+Content-Type: application/json
+
+
+{
+  "name": "nancy",
+  "sex": "女",
+  "age": "22",
+  "image": "beauty"
+}
+
+###
+
+PUT http://10.221.154.185:9003/shopping/_doc
+Accept: application/json
+Content-Type: application/json
+
+
+{
+  "name": "nancy",
+  "sex": "女",
+  "age": "22",
+  "image": "beauty"
+}
+
+
+###
+POST http://10.221.154.185:9003/shopping/_doc/1001
+Accept: application/json
+Content-Type: application/json
+
+
+{
+  "name": "tom",
+  "sex": "cat",
+  "age": "13",
+  "image": "beautiful"
+}
+
+
+
+###
+
+PUT http://10.221.154.185:9003/shopping/_doc/1002
+Accept: application/json
+Content-Type: application/json
+
+
+{
+  "name": "tom",
+  "sex": "cat",
+  "age": "13",
+  "image": "beautiful"
+}
