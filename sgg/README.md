@@ -713,6 +713,113 @@ Response code: 200 (OK); Time: 120ms; Content length: 763 bytes
 
 # 012-入门-HTTP-全量修改 & 局部修改 & 删除
 
+## & 全量修改
+
+```shell
+###
+PUT http://10.221.154.185:9003/shopping/_doc/1001
+Accept: application/json
+Content-Type: application/json
+
+
+{
+  "name": "jerry",
+  "sex": "mouse",
+  "age": "09",
+  "image": "funny"
+}
+
+```
+
+
+
+```shell
+PUT http://10.221.154.185:9003/shopping/_doc/1001
+
+HTTP/1.1 200 OK
+content-type: application/json; charset=UTF-8
+
+{
+  "_index": "shopping",
+  "_type": "_doc",
+  "_id": "1001",
+  "_version": 2,
+  "result": "updated",
+  "_shards": {
+    "total": 2,
+    "successful": 1,
+    "failed": 0
+  },
+  "_seq_no": 2,
+  "_primary_term": 1
+}
+
+Response code: 200 (OK); Time: 116ms; Content length: 159 bytes
+
+```
+
+查询
+
+![1629948370665](README/1629948370665.png)
+
+## & 局部修改
+
+
+
+## & 删除
+
+```shell
+DELETE http://10.221.154.185:9003/shopping/_doc/1001
+
+HTTP/1.1 200 OK
+content-type: application/json; charset=UTF-8
+
+{
+  "_index": "shopping",
+  "_type": "_doc",
+  "_id": "1001",
+  "_version": 3,
+  "result": "deleted",
+  "_shards": {
+    "total": 2,
+    "successful": 1,
+    "failed": 0
+  },
+  "_seq_no": 3,
+  "_primary_term": 1
+}
+
+Response code: 200 (OK); Time: 133ms; Content length: 159 bytes
+
+```
+
+不可重复删
+
+```shell
+DELETE http://10.221.154.185:9003/shopping/_doc/1001
+
+HTTP/1.1 404 Not Found
+content-type: application/json; charset=UTF-8
+
+{
+  "_index": "shopping",
+  "_type": "_doc",
+  "_id": "1001",
+  "_version": 5,
+  "result": "not_found",
+  "_shards": {
+    "total": 2,
+    "successful": 1,
+    "failed": 0
+  },
+  "_seq_no": 5,
+  "_primary_term": 1
+}
+
+Response code: 404 (Not Found); Time: 137ms; Content length: 161 bytes
+
+```
+
 
 
 # 013-入门-HTTP-条件查询 & 分页查询 & 查询排序

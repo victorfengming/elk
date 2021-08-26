@@ -123,6 +123,42 @@ Content-Type: application/json
 
 
 {
-
 }
 
+
+
+###
+PUT http://10.221.154.185:9003/shopping/_doc/1001
+Accept: application/json
+Content-Type: application/json
+
+
+{
+  "name": "jerry",
+  "sex": "mouse",
+  "age": "09",
+  "image": "funny"
+}
+
+###
+POST http://10.221.154.185:9003/shopping/_update/1001
+Accept: application/json
+Content-Type: application/json
+
+
+{
+  "doc": {
+    "name": "jerry2"
+  }
+}
+
+
+###
+DELETE http://10.221.154.185:9003/shopping/_doc/1001
+Accept: application/json
+Content-Type: application/json
+
+
+{
+
+}
