@@ -1082,19 +1082,324 @@ Response code: 200 (OK); Time: 213ms; Content length: 467 bytes
 
 指定数据源
 
+## 排序
+
+```shell
+### 分页查询,指定数据源
+GET http://10.221.154.185:9003/shopping/_search
+Accept: application/json
+Content-Type: application/json
+
+
+{
+  "query": {
+    "match_all": {
+    }
+  },
+  "from": 0,
+  "size": 2,
+  "_source": [
+    "name","age"
+  ]
+  ,
+  "sort": {
+    "age": {
+      "order": "desc"
+    }
+  }
+}
+
+```
+
 
 
 # 014-入门-HTTP-多条件查询 & 范围查询
+
+## & 多条件查询 
+
+```shell
+
+### 条件查询
+GET http://10.221.154.185:9003/shopping/_search
+Accept: application/json
+Content-Type: application/json
+
+
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "match": {
+            "age": "22"
+          }
+        },
+        {
+          "match": {
+            "name": "nancy"
+          }
+        }
+      ]
+    }
+  }
+}
+
+
+```
+
+```shell
+GET http://10.221.154.185:9003/shopping/_search
+
+HTTP/1.1 200 OK
+content-type: application/json; charset=UTF-8
+
+{
+  "took": 3,
+  "timed_out": false,
+  "_shards": {
+    "total": 5,
+    "successful": 5,
+    "skipped": 0,
+    "failed": 0
+  },
+  "hits": {
+    "total": 2,
+    "max_score": 0.5753642,
+    "hits": [
+      {
+        "_index": "shopping",
+        "_type": "_doc",
+        "_id": "CqRugHsBT86PdrEa5xLI",
+        "_score": 0.5753642,
+        "_source": {
+          "name": "nancy",
+          "sex": "女",
+          "age": "22",
+          "image": "beauty"
+        }
+      },
+      {
+        "_index": "shopping",
+        "_type": "_doc",
+        "_id": "xKRsgHsBT86PdrEa7xBP",
+        "_score": 0.5753642,
+        "_source": {
+          "name": "nancy",
+          "sex": "女",
+          "age": "22",
+          "image": "beauty"
+        }
+      }
+    ]
+  }
+}
+
+Response code: 200 (OK); Time: 175ms; Content length: 485 bytes
+
+```
+
+## 或者
+
+```shell
+
+### 条件查询2 或者
+GET http://10.221.154.185:9003/shopping/_search
+Accept: application/json
+Content-Type: application/json
+
+
+{
+  "query": {
+    "bool": {
+      "should": [
+        {
+          "match": {
+            "name": "tom"
+          }
+        },
+        {
+          "match": {
+            "name": "nancy"
+          }
+        }
+      ]
+    }
+  }
+}
+
+
+```
+
+
+
+```shell
+GET http://10.221.154.185:9003/shopping/_search
+
+HTTP/1.1 200 OK
+content-type: application/json; charset=UTF-8
+
+{
+  "took": 1,
+  "timed_out": false,
+  "_shards": {
+    "total": 5,
+    "successful": 5,
+    "skipped": 0,
+    "failed": 0
+  },
+  "hits": {
+    "total": 3,
+    "max_score": 0.2876821,
+    "hits": [
+      {
+        "_index": "shopping",
+        "_type": "_doc",
+        "_id": "CqRugHsBT86PdrEa5xLI",
+        "_score": 0.2876821,
+        "_source": {
+          "name": "nancy",
+          "sex": "女",
+          "age": "22",
+          "image": "beauty"
+        }
+      },
+      {
+        "_index": "shopping",
+        "_type": "_doc",
+        "_id": "xKRsgHsBT86PdrEa7xBP",
+        "_score": 0.2876821,
+        "_source": {
+          "name": "nancy",
+          "sex": "女",
+          "age": "22",
+          "image": "beauty"
+        }
+      },
+      {
+        "_index": "shopping",
+        "_type": "_doc",
+        "_id": "1002",
+        "_score": 0.2876821,
+        "_source": {
+          "name": "tom",
+          "sex": "cat",
+          "age": "13",
+          "image": "beautiful"
+        }
+      }
+    ]
+  }
+}
+
+Response code: 200 (OK); Time: 122ms; Content length: 639 bytes
+
+```
+
+
+
+## & 范围查询
+
+```shell
+
+### 条件范围查询
+GET http://10.221.154.185:9003/shopping/_search
+Accept: application/json
+Content-Type: application/json
+
+
+{
+  "query": {
+    "bool": {
+      "should": [
+        {
+          "match": {
+            "name": "tom"
+          }
+        },
+        {
+          "match": {
+            "name": "nancy"
+          }
+        }
+      ],
+      "filter": {
+        "range": {
+          "age": {
+            "gt": "18"
+          }
+        }
+      }
+    }
+  }
+}
+
+
+```
+
+```shell
+GET http://10.221.154.185:9003/shopping/_search
+
+HTTP/1.1 200 OK
+content-type: application/json; charset=UTF-8
+
+{
+  "took": 13,
+  "timed_out": false,
+  "_shards": {
+    "total": 5,
+    "successful": 5,
+    "skipped": 0,
+    "failed": 0
+  },
+  "hits": {
+    "total": 2,
+    "max_score": 0.2876821,
+    "hits": [
+      {
+        "_index": "shopping",
+        "_type": "_doc",
+        "_id": "CqRugHsBT86PdrEa5xLI",
+        "_score": 0.2876821,
+        "_source": {
+          "name": "nancy",
+          "sex": "女",
+          "age": "22",
+          "image": "beauty"
+        }
+      },
+      {
+        "_index": "shopping",
+        "_type": "_doc",
+        "_id": "xKRsgHsBT86PdrEa7xBP",
+        "_score": 0.2876821,
+        "_source": {
+          "name": "nancy",
+          "sex": "女",
+          "age": "22",
+          "image": "beauty"
+        }
+      }
+    ]
+  }
+}
+
+Response code: 200 (OK); Time: 106ms; Content length: 486 bytes
+
+```
+
+
+
+
 
 
 
 # 015-入门-HTTP-全文检索 & 完全匹配 & 高亮查询
 
-
+默认会给你分词,并存在倒排索引当中
 
 # 016-入门-HTTP-聚合查询
 
-
+https://www.bilibili.com/video/BV1hh411D7sb?p=16&spm_id_from=pageDriver
 
 # 017-入门-HTTP-映射关系
 

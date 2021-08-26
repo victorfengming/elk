@@ -225,12 +225,103 @@ Content-Type: application/json
   "from": 0,
   "size": 2,
   "_source": [
-    "name","age"
-  ]
-  ,
+    "name",
+    "age"
+  ],
   "sort": {
     "age": {
       "order": "desc"
     }
   }
 }
+
+
+
+
+### 条件查询1 并且
+GET http://10.221.154.185:9003/shopping/_search
+Accept: application/json
+Content-Type: application/json
+
+
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "match": {
+            "age": "22"
+          }
+        },
+        {
+          "match": {
+            "name": "nancy"
+          }
+        }
+      ]
+    }
+  }
+}
+
+
+
+### 条件查询2 或者
+GET http://10.221.154.185:9003/shopping/_search
+Accept: application/json
+Content-Type: application/json
+
+
+{
+  "query": {
+    "bool": {
+      "should": [
+        {
+          "match": {
+            "name": "tom"
+          }
+        },
+        {
+          "match": {
+            "name": "nancy"
+          }
+        }
+      ]
+    }
+  }
+}
+
+
+### 条件范围查询
+GET http://10.221.154.185:9003/shopping/_search
+Accept: application/json
+Content-Type: application/json
+
+
+{
+  "query": {
+    "bool": {
+      "should": [
+        {
+          "match": {
+            "name": "tom"
+          }
+        },
+        {
+          "match": {
+            "name": "nancy"
+          }
+        }
+      ],
+      "filter": {
+        "range": {
+          "age": {
+            "gt": "18"
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
