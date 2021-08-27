@@ -1392,8 +1392,6 @@ Response code: 200 (OK); Time: 106ms; Content length: 486 bytes
 
 
 
-
-
 # 015-入门-HTTP-全文检索 & 完全匹配 & 高亮查询
 
 默认会给你分词,并存在倒排索引当中
