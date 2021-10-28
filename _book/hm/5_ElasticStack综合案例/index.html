@@ -1,0 +1,2059 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>5_ElasticStack综合案例 · elk</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Victor <victorfengming@163.com>">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-lightbox/css/lightbox.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-ancre-navigation/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism-atom-dark.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../6_使用ELK搭建蘑菇博客日志收集/" />
+    
+    
+    <link rel="prev" href="../4_Logstash入门简介/" />
+    
+
+    
+        <link rel="shortcut icon" href='../../img/avator.png.icon.ico' type="image/x-icon">
+    
+    
+        <link rel="bookmark" href='../../img/avator.png.icon.ico' type="image/x-icon">
+    
+    
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://victorfengming.gitee.io/index/gitbook/" target="_blank" class="custom-link">文档索引页</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" >
+            
+                <span>
+            
+                    
+                    sxt
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../../sxt/01_简介.html">
+            
+                <a href="../../sxt/01_简介.html">
+            
+                    
+                    01_简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="../../sxt/02_概念.html">
+            
+                <a href="../../sxt/02_概念.html">
+            
+                    
+                    02_概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="../../sxt/03_常用场景.html">
+            
+                <a href="../../sxt/03_常用场景.html">
+            
+                    
+                    03_常用场景
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="../../sxt/04_基于Docker安装ElasticSearch和Kibana.html">
+            
+                <a href="../../sxt/04_基于Docker安装ElasticSearch和Kibana.html">
+            
+                    
+                    04_基于Docker安装ElasticSearch和Kibana
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5" data-path="../../sxt/05_创建索引及状态查看.html">
+            
+                <a href="../../sxt/05_创建索引及状态查看.html">
+            
+                    
+                    05_创建索引及状态查看
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6" data-path="../../sxt/06_修改索引及删除索引.html">
+            
+                <a href="../../sxt/06_修改索引及删除索引.html">
+            
+                    
+                    06_修改索引及删除索引
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7" data-path="../../sxt/07_新增文档.html">
+            
+                <a href="../../sxt/07_新增文档.html">
+            
+                    
+                    07_新增文档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8" data-path="../../sxt/08_主键查询文档.html">
+            
+                <a href="../../sxt/08_主键查询文档.html">
+            
+                    
+                    08_主键查询文档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.9" data-path="../../sxt/09_修改文档.html">
+            
+                <a href="../../sxt/09_修改文档.html">
+            
+                    
+                    09_修改文档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.10" data-path="../../sxt/10_删除文档.html">
+            
+                <a href="../../sxt/10_删除文档.html">
+            
+                    
+                    10_删除文档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.11" data-path="../../sxt/11_bulk批量操作.html">
+            
+                <a href="../../sxt/11_bulk批量操作.html">
+            
+                    
+                    11_bulk批量操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.12" data-path="../../sxt/12_分词器和标准化处理.html">
+            
+                <a href="../../sxt/12_分词器和标准化处理.html">
+            
+                    
+                    12_分词器和标准化处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.13" data-path="../../sxt/13_安装中文分词器.html">
+            
+                <a href="../../sxt/13_安装中文分词器.html">
+            
+                    
+                    13_安装中文分词器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.14" data-path="../../sxt/14_mapping映射.html">
+            
+                <a href="../../sxt/14_mapping映射.html">
+            
+                    
+                    14_mapping映射
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.15" data-path="../../sxt/15_querystring搜索.html">
+            
+                <a href="../../sxt/15_querystring搜索.html">
+            
+                    
+                    15_querystring搜索
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.16" data-path="../../sxt/16_DSL搜索.html">
+            
+                <a href="../../sxt/16_DSL搜索.html">
+            
+                    
+                    16_DSL搜索
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.17" >
+            
+                <span>
+            
+                    
+                    17_SpringDataElasticsearch
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.17.1" data-path="../../sxt/17_SpringDataElasticsearch_实体.html">
+            
+                <a href="../../sxt/17_SpringDataElasticsearch_实体.html">
+            
+                    
+                    17_实体
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.17.2" data-path="../../sxt/18_SpringDataElasticsearch_创建索引.html">
+            
+                <a href="../../sxt/18_SpringDataElasticsearch_创建索引.html">
+            
+                    
+                    18_创建索引
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.17.3" data-path="../../sxt/19_SpringDataElasticsearch_删除索引.html">
+            
+                <a href="../../sxt/19_SpringDataElasticsearch_删除索引.html">
+            
+                    
+                    19_删除索引
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.17.4" data-path="../../sxt/20_SpringDataElasticsearch_新增和修改文档.html">
+            
+                <a href="../../sxt/20_SpringDataElasticsearch_新增和修改文档.html">
+            
+                    
+                    20_新增和修改文档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.17.5" data-path="../../sxt/21_SpringDataElasticsearch_删除文档.html">
+            
+                <a href="../../sxt/21_SpringDataElasticsearch_删除文档.html">
+            
+                    
+                    21_删除文档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.17.6" data-path="../../sxt/22_SpringDataElasticsearch_搜索文档.html">
+            
+                <a href="../../sxt/22_SpringDataElasticsearch_搜索文档.html">
+            
+                    
+                    22_搜索文档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.17.7" data-path="../../sxt/23_SpringDataElasticsearch_高亮搜索.html">
+            
+                <a href="../../sxt/23_SpringDataElasticsearch_高亮搜索.html">
+            
+                    
+                    23_高亮搜索
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" >
+            
+                <span>
+            
+                    
+                    hm
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../1_ElasticSearch介绍与安装/">
+            
+                <a href="../1_ElasticSearch介绍与安装/">
+            
+                    
+                    1_ElasticSearch介绍与安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="../2_Beats入门简介/">
+            
+                <a href="../2_Beats入门简介/">
+            
+                    
+                    2_Beats入门简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3" data-path="../3_Kibana安装与介绍/">
+            
+                <a href="../3_Kibana安装与介绍/">
+            
+                    
+                    3_Kibana安装与介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.4" data-path="../4_Logstash入门简介/">
+            
+                <a href="../4_Logstash入门简介/">
+            
+                    
+                    4_Logstash入门简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="3.1.5" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    5_ElasticStack综合案例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.6" data-path="../6_使用ELK搭建蘑菇博客日志收集/">
+            
+                <a href="../6_使用ELK搭建蘑菇博客日志收集/">
+            
+                    
+                    6_使用ELK搭建蘑菇博客日志收集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.7" >
+            
+                <span>
+            
+                    
+                    0_完整课件
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.7.1" data-path="../0_pdf课件/note01.html">
+            
+                <a href="../0_pdf课件/note01.html">
+            
+                    
+                    part01
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.7.2" data-path="../0_pdf课件/note02.html">
+            
+                <a href="../0_pdf课件/note02.html">
+            
+                    
+                    part02
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" >
+            
+                <span>
+            
+                    
+                    狂神聊elasticsearch
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.1" data-path="../../base/01-elasticsearch-catlog.html">
+            
+                <a href="../../base/01-elasticsearch-catlog.html">
+            
+                    
+                    catlog
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.2" data-path="../../base/02-elasticsearch-聊DougCutting.html">
+            
+                <a href="../../base/02-elasticsearch-聊DougCutting.html">
+            
+                    
+                    聊DougCutting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.3" data-path="../../base/03-elasticsearch-概述.html">
+            
+                <a href="../../base/03-elasticsearch-概述.html">
+            
+                    
+                    概述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.4" data-path="../../base/04-elasticsearch-和solr对比.html">
+            
+                <a href="../../base/04-elasticsearch-和solr对比.html">
+            
+                    
+                    和solr对比
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.5" data-path="../../base/05-elasticsearch-安装和head插件.html">
+            
+                <a href="../../base/05-elasticsearch-安装和head插件.html">
+            
+                    
+                    安装和head插件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.6" data-path="../../base/06-elasticsearch-kibana安装.html">
+            
+                <a href="../../base/06-elasticsearch-kibana安装.html">
+            
+                    
+                    kibana安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.7" data-path="../../base/07-elasticsearch-es核心概念理解.html">
+            
+                <a href="../../base/07-elasticsearch-es核心概念理解.html">
+            
+                    
+                    es核心概念理解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.8" data-path="../../base/08-elasticsearch-IK分词器插件.html">
+            
+                <a href="../../base/08-elasticsearch-IK分词器插件.html">
+            
+                    
+                    IK分词器插件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.9" data-path="../../base/09-elasticsearch-Rest风格.html">
+            
+                <a href="../../base/09-elasticsearch-Rest风格.html">
+            
+                    
+                    Rest风格
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.10" data-path="../../base/10-elasticsearch-文档基本操作.html">
+            
+                <a href="../../base/10-elasticsearch-文档基本操作.html">
+            
+                    
+                    文档基本操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.11" data-path="../../base/11_花式查询详解.html">
+            
+                <a href="../../base/11_花式查询详解.html">
+            
+                    
+                    花式查询详解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.12" data-path="../../base/12_SpringBoot集成ES详解.html">
+            
+                <a href="../../base/12_SpringBoot集成ES详解.html">
+            
+                    
+                    SpringBoot集成ES详解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.13" data-path="../../base/13_关于索引的API操作详解.html">
+            
+                <a href="../../base/13_关于索引的API操作详解.html">
+            
+                    
+                    关于索引的API操作详解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.14" data-path="../../base/14_关于文档的API操作详解.html">
+            
+                <a href="../../base/14_关于文档的API操作详解.html">
+            
+                    
+                    关于文档的API操作详解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.15" data-path="../../base/15_京东搜索_项目搭建.html">
+            
+                <a href="../../base/15_京东搜索_项目搭建.html">
+            
+                    
+                    京东搜索_项目搭建
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.16" data-path="../../base/16_京东搜索_爬取数据.html">
+            
+                <a href="../../base/16_京东搜索_爬取数据.html">
+            
+                    
+                    京东搜索_爬取数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.17" data-path="../../base/17_京东搜索_业务编写.html">
+            
+                <a href="../../base/17_京东搜索_业务编写.html">
+            
+                    
+                    京东搜索_业务编写
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.18" data-path="../../base/18_京东搜索_前后端交互.html">
+            
+                <a href="../../base/18_京东搜索_前后端交互.html">
+            
+                    
+                    京东搜索_前后端交互
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.19" data-path="../../base/19_京东搜索_关键字高亮实现.html">
+            
+                <a href="../../base/19_京东搜索_关键字高亮实现.html">
+            
+                    
+                    京东搜索_关键字高亮实现
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.20" data-path="../../base/20_狂神聊ES小结.html">
+            
+                <a href="../../base/20_狂神聊ES小结.html">
+            
+                    
+                    狂神聊ES小结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" >
+            
+                <span>
+            
+                    
+                    qf_elasticsearch
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.3.1" data-path="../../qf_es/01_ES介绍.html">
+            
+                <a href="../../qf_es/01_ES介绍.html">
+            
+                    
+                    ES介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.2" data-path="../../qf_es/02_ES和Solr的区别.html">
+            
+                <a href="../../qf_es/02_ES和Solr的区别.html">
+            
+                    
+                    ES和Solr的区别
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.3" data-path="../../qf_es/03_倒排索引.html">
+            
+                <a href="../../qf_es/03_倒排索引.html">
+            
+                    
+                    倒排索引
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.4" data-path="../../qf_es/04_安装ES和Kibana.html">
+            
+                <a href="../../qf_es/04_安装ES和Kibana.html">
+            
+                    
+                    安装ES和Kibana
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.5" data-path="../../qf_es/05_安装IK分词器.html">
+            
+                <a href="../../qf_es/05_安装IK分词器.html">
+            
+                    
+                    安装IK分词器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.6" data-path="../../qf_es/06_Redis的结构.html">
+            
+                <a href="../../qf_es/06_Redis的结构.html">
+            
+                    
+                    Redis的结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.7" data-path="../../qf_es/07_ES的RESTful语法.html">
+            
+                <a href="../../qf_es/07_ES的RESTful语法.html">
+            
+                    
+                    ES的RESTful语法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.8" data-path="../../qf_es/08_ES的索引操作.html">
+            
+                <a href="../../qf_es/08_ES的索引操作.html">
+            
+                    
+                    ES的索引操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.9" data-path="../../qf_es/09_ES的Field类型.html">
+            
+                <a href="../../qf_es/09_ES的Field类型.html">
+            
+                    
+                    ES的Field类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.10" data-path="../../qf_es/10_ES创建索引指定数据结构.html">
+            
+                <a href="../../qf_es/10_ES创建索引指定数据结构.html">
+            
+                    
+                    ES创建索引指定数据结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.11" data-path="../../qf_es/11_ES的文档操作.html">
+            
+                <a href="../../qf_es/11_ES的文档操作.html">
+            
+                    
+                    ES的文档操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.12" >
+            
+                <span>
+            
+                    
+                    Java操作
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.3.12.1" data-path="../../qf_es/12_Java操作ES.html">
+            
+                <a href="../../qf_es/12_Java操作ES.html">
+            
+                    
+                    Java操作ES
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.12.2" data-path="../../qf_es/13_Java代码操作索引_create.html">
+            
+                <a href="../../qf_es/13_Java代码操作索引_create.html">
+            
+                    
+                    Java代码操作索引_create
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.12.3" data-path="../../qf_es/14_Java代码操作索引_exists_delete.html">
+            
+                <a href="../../qf_es/14_Java代码操作索引_exists_delete.html">
+            
+                    
+                    Java代码操作索引_exists_delete
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.12.4" data-path="../../qf_es/15_Java操作文档_添加文档.html">
+            
+                <a href="../../qf_es/15_Java操作文档_添加文档.html">
+            
+                    
+                    Java操作文档_添加文档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.12.5" data-path="../../qf_es/16_Java操作文档_修改删除文档.html">
+            
+                <a href="../../qf_es/16_Java操作文档_修改删除文档.html">
+            
+                    
+                    Java操作文档_修改删除文档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.12.6" data-path="../../qf_es/17_Java操作文档_批量操作.html">
+            
+                <a href="../../qf_es/17_Java操作文档_批量操作.html">
+            
+                    
+                    Java操作文档_批量操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.13" data-path="../../qf_es/18_准备测试数据.html">
+            
+                <a href="../../qf_es/18_准备测试数据.html">
+            
+                    
+                    准备测试数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.14" >
+            
+                <span>
+            
+                    
+                    ES查询
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.3.14.1" data-path="../../qf_es/19_ES查询_term查询.html">
+            
+                <a href="../../qf_es/19_ES查询_term查询.html">
+            
+                    
+                    ES查询_term查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.14.2" data-path="../../qf_es/20_ES查询_terms查询.html">
+            
+                <a href="../../qf_es/20_ES查询_terms查询.html">
+            
+                    
+                    ES查询_terms查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.14.3" data-path="../../qf_es/21_ES查询_match_all查询.html">
+            
+                <a href="../../qf_es/21_ES查询_match_all查询.html">
+            
+                    
+                    ES查询_match_all查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.14.4" data-path="../../qf_es/22_ES查询_布尔matchl查询.html">
+            
+                <a href="../../qf_es/22_ES查询_布尔matchl查询.html">
+            
+                    
+                    ES查询_布尔matchl查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.14.5" data-path="../../qf_es/23_ES查询_multiMatch查询.html">
+            
+                <a href="../../qf_es/23_ES查询_multiMatch查询.html">
+            
+                    
+                    ES查询_multiMatch查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.14.6" data-path="../../qf_es/24_ES查询_id_ids查询.html">
+            
+                <a href="../../qf_es/24_ES查询_id_ids查询.html">
+            
+                    
+                    ES查询_id_ids查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.14.7" data-path="../../qf_es/25_ES查询_prefix查询.html">
+            
+                <a href="../../qf_es/25_ES查询_prefix查询.html">
+            
+                    
+                    ES查询_prefix查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.14.8" data-path="../../qf_es/26_ES查询_fuzzy查询.html">
+            
+                <a href="../../qf_es/26_ES查询_fuzzy查询.html">
+            
+                    
+                    ES查询_fuzzy查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.14.9" data-path="../../qf_es/27_ES查询_wildcard查询.html">
+            
+                <a href="../../qf_es/27_ES查询_wildcard查询.html">
+            
+                    
+                    ES查询_wildcard查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.14.10" data-path="../../qf_es/28_ES查询_range查询.html">
+            
+                <a href="../../qf_es/28_ES查询_range查询.html">
+            
+                    
+                    ES查询_range查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.14.11" data-path="../../qf_es/29_ES查询_regexp查询.html">
+            
+                <a href="../../qf_es/29_ES查询_regexp查询.html">
+            
+                    
+                    ES查询_regexp查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.15" >
+            
+                <span>
+            
+                    
+                    ES深分页
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.3.15.1" data-path="../../qf_es/30_ES深分页scroll介绍.html">
+            
+                <a href="../../qf_es/30_ES深分页scroll介绍.html">
+            
+                    
+                    ES深分页scroll介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.15.2" data-path="../../qf_es/31_ES深分页RESTful实现.html">
+            
+                <a href="../../qf_es/31_ES深分页RESTful实现.html">
+            
+                    
+                    ES深分页RESTful实现
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.15.3" data-path="../../qf_es/32_ES深分页scroll的Java实现.html">
+            
+                <a href="../../qf_es/32_ES深分页scroll的Java实现.html">
+            
+                    
+                    ES深分页scroll的Java实现
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.16" data-path="../../qf_es/33_ES的delete_by_query.html">
+            
+                <a href="../../qf_es/33_ES的delete_by_query.html">
+            
+                    
+                    ES的delete_by_query
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.17" data-path="../../qf_es/34_ES的复合查询_bool查询.html">
+            
+                <a href="../../qf_es/34_ES的复合查询_bool查询.html">
+            
+                    
+                    ES的复合查询_bool查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.18" data-path="../../qf_es/35_ES的复合查询_boostringl查询.html">
+            
+                <a href="../../qf_es/35_ES的复合查询_boostringl查询.html">
+            
+                    
+                    ES的复合查询_boostringl查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.19" data-path="../../qf_es/36_ES的filter查询.html">
+            
+                <a href="../../qf_es/36_ES的filter查询.html">
+            
+                    
+                    ES的filter查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.20" data-path="../../qf_es/37_ES的高亮查询.html">
+            
+                <a href="../../qf_es/37_ES的高亮查询.html">
+            
+                    
+                    ES的高亮查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.21" >
+            
+                <span>
+            
+                    
+                    ES的聚合查询
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.3.21.1" data-path="../../qf_es/38_ES的聚合查询-cardinality.html">
+            
+                <a href="../../qf_es/38_ES的聚合查询-cardinality.html">
+            
+                    
+                    ES的聚合查询-cardinality
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.21.2" data-path="../../qf_es/39_ES的聚合查询-range.html">
+            
+                <a href="../../qf_es/39_ES的聚合查询-range.html">
+            
+                    
+                    ES的聚合查询-range
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.21.3" data-path="../../qf_es/40_ES的聚合查询-extended_stats.html">
+            
+                <a href="../../qf_es/40_ES的聚合查询-extended_stats.html">
+            
+                    
+                    ES的聚合查询-extended_stats
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.22" >
+            
+                <span>
+            
+                    
+                    ES的经纬度查询
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.3.22.1" data-path="../../qf_es/41_ES的经纬度查询_介绍.html">
+            
+                <a href="../../qf_es/41_ES的经纬度查询_介绍.html">
+            
+                    
+                    ES的经纬度查询_介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.22.2" data-path="../../qf_es/42_ES的经纬度查询_准备测试数据.html">
+            
+                <a href="../../qf_es/42_ES的经纬度查询_准备测试数据.html">
+            
+                    
+                    ES的经纬度查询_准备测试数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.22.3" data-path="../../qf_es/43_ES的经纬度查询_RESTful实现.html">
+            
+                <a href="../../qf_es/43_ES的经纬度查询_RESTful实现.html">
+            
+                    
+                    ES的经纬度查询_RESTful实现
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.22.4" data-path="../../qf_es/44_ES的经纬度查询_Java实现.html">
+            
+                <a href="../../qf_es/44_ES的经纬度查询_Java实现.html">
+            
+                    
+                    ES的经纬度查询_Java实现
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" >
+            
+                <span>
+            
+                    
+                    sgg_es
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="../../sgg/">
+            
+                <a href="../../sgg/">
+            
+                    
+                    ES
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >5_ElasticStack综合案例</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <html><head></head><body><div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><span class="title-icon "></span><a href="#elasticstack&#x7EFC;&#x5408;&#x6848;&#x4F8B;"><b></b>ElasticStack&#x7EFC;&#x5408;&#x6848;&#x4F8B;</a></li><ul><li><span class="title-icon "></span><a href="#&#x6D41;&#x7A0B;&#x8BF4;&#x660E;"><b></b>&#x6D41;&#x7A0B;&#x8BF4;&#x660E;</a></li><li><span class="title-icon "></span><a href="#app&#x4ECB;&#x7ECD;"><b></b>App&#x4ECB;&#x7ECD;</a></li><li><span class="title-icon "></span><a href="#&#x914D;&#x7F6E;filebeat"><b></b>&#x914D;&#x7F6E;Filebeat</a></li><li><span class="title-icon "></span><a href="#&#x914D;&#x7F6E;logstash"><b></b>&#x914D;&#x7F6E;Logstash</a></li><ul><li><span class="title-icon "></span><a href="#logstash&#x8F93;&#x51FA;&#x5230;&#x63A7;&#x5236;&#x53F0;"><b></b>Logstash&#x8F93;&#x51FA;&#x5230;&#x63A7;&#x5236;&#x53F0;</a></li><li><span class="title-icon "></span><a href="#&#x914D;&#x7F6E;logstash&#x8FDE;&#x63A5;elasticsearch"><b></b>&#x914D;&#x7F6E;Logstash&#x8FDE;&#x63A5;ElasticSearch</a></li><li><span class="title-icon "></span><a href="#&#x9047;&#x5230;&#x7684;&#x95EE;&#x9898;1"><b></b>&#x9047;&#x5230;&#x7684;&#x95EE;&#x9898;1</a></li><li><span class="title-icon "></span><a href="#&#x9047;&#x5230;&#x7684;&#x95EE;&#x9898;2"><b></b>&#x9047;&#x5230;&#x7684;&#x95EE;&#x9898;2</a></li></ul><li><span class="title-icon "></span><a href="#&#x542F;&#x52A8;elasticsearch"><b></b>&#x542F;&#x52A8;ElasticSearch</a></li><li><span class="title-icon "></span><a href="#&#x542F;&#x52A8;kibana"><b></b>&#x542F;&#x52A8;Kibana</a></li><ul><li><span class="title-icon "></span><a href="#&#x6DFB;&#x52A0;&#x5230;&#x7D22;&#x5F15;&#x5E93;"><b></b>&#x6DFB;&#x52A0;&#x5230;&#x7D22;&#x5F15;&#x5E93;</a></li><li><span class="title-icon "></span><a href="#&#x521B;&#x5EFA;&#x67F1;&#x5F62;&#x56FE;"><b></b>&#x521B;&#x5EFA;&#x67F1;&#x5F62;&#x56FE;</a></li><li><span class="title-icon "></span><a href="#&#x521B;&#x5EFA;&#x997C;&#x56FE;"><b></b>&#x521B;&#x5EFA;&#x997C;&#x56FE;</a></li><li><span class="title-icon "></span><a href="#&#x6570;&#x636E;&#x8868;&#x683C;"><b></b>&#x6570;&#x636E;&#x8868;&#x683C;</a></li></ul><li><span class="title-icon "></span><a href="#&#x5236;&#x4F5C;dashboard"><b></b>&#x5236;&#x4F5C;Dashboard</a></li></ul></ul></div><a href="#elasticstack&#x7EFC;&#x5408;&#x6848;&#x4F8B;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="elasticstack&#x7EFC;&#x5408;&#x6848;&#x4F8B;"><a name="elasticstack&#x7EFC;&#x5408;&#x6848;&#x4F8B;" class="anchor-navigation-ex-anchor" href="#elasticstack&#x7EFC;&#x5408;&#x6848;&#x4F8B;"><i class="fa fa-link" aria-hidden="true"></i></a>ElasticStack&#x7EFC;&#x5408;&#x6848;&#x4F8B;</h1>
+<p>&#x672C;&#x7BC7;&#x5C06;&#x6211;&#x4EEC;&#x524D;&#x9762;&#x5B66;&#x4E60;&#x5230;&#x7684;&#x6280;&#x672F;&#xFF1A;ElasticSearch&#x3001;Beats&#x3001;Kibana&#x3001;Logstash &#x6574;&#x5408;&#x8D77;&#x6765;&#xFF0C;&#x505A;&#x4E00;&#x4E2A;&#x7EFC;&#x5408;&#x6027;&#x7684;&#x5B66;&#x4E60;&#xFF0C;&#x76EE;&#x7684;&#x662F;&#x4E3A;&#x4E86;&#x8BA9;&#x5C0F;&#x4F19;&#x4F34;&#x4EEC;&#x80FD;&#x591F;&#x66F4;&#x52A0;&#x6DF1;&#x523B;&#x7684;&#x7406;&#x89E3;ElasticStack&#x7684;&#x4F7F;&#x7528;</p>
+<h2 id="&#x6D41;&#x7A0B;&#x8BF4;&#x660E;"><a name="&#x6D41;&#x7A0B;&#x8BF4;&#x660E;" class="anchor-navigation-ex-anchor" href="#&#x6D41;&#x7A0B;&#x8BF4;&#x660E;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6D41;&#x7A0B;&#x8BF4;&#x660E;</h2>
+<p><a href="images/image-20200925083514711.png" data-lightbox="2fbe5a28-debf-4a79-8030-fd0a51e9aa90" data-title="image-20200925083514711"><img src="images/image-20200925083514711.png" alt="image-20200925083514711"></a></p>
+<ul>
+<li>&#x5E94;&#x7528;APP&#x751F;&#x4EA7;&#x65E5;&#x5FD7;&#xFF0C;&#x7528;&#x6765;&#x8BB0;&#x5F55;&#x7528;&#x6237;&#x7684;&#x64CD;&#x4F5C;<ul>
+<li>[INFO] 2019-03-15 22:55:20 [Main] - DAU|5206|&#x4F7F;&#x7528;&#x4F18;&#x60E0;&#x5238;|2019-03-15 03:37:20</li>
+<li>[INFO] 2019-03-15 22:55:21 [Main] - DAU|3880|&#x6D4F;&#x89C8;&#x9875;&#x9762;|2019-03-15 07:25:09</li>
+</ul>
+</li>
+<li>&#x901A;&#x8FC7;Filebeat&#x8BFB;&#x53D6;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x5E76;&#x4E14;&#x5C06;&#x5185;&#x5BB9;&#x53D1;&#x9001;&#x7ED9;Logstash&#xFF0C;&#x539F;&#x56E0;&#x662F;&#x9700;&#x8981;&#x5BF9;&#x5185;&#x5BB9;&#x505A;&#x5904;&#x7406;</li>
+<li>Logstash&#x63A5;&#x6536;&#x5230;&#x5185;&#x5BB9;&#x540E;&#xFF0C;&#x8FDB;&#x884C;&#x5904;&#x7406;&#xFF0C;&#x5982;&#x5206;&#x5272;&#x64CD;&#x4F5C;&#xFF0C;&#x7136;&#x540E;&#x5C06;&#x5185;&#x5BB9;&#x53D1;&#x9001;&#x5230;Elasticsearch&#x4E2D;</li>
+<li>Kibana&#x4F1A;&#x8BFB;&#x53D6;Elasticsearch&#x4E2D;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x5E76;&#x4E14;&#x5728;Kibana&#x4E2D;&#x8FDB;&#x884C;&#x8BBE;&#x8BA1;Dashboard&#xFF0C;&#x6700;&#x540E;&#x8FDB;&#x884C;&#x5C55;&#x793A;</li>
+</ul>
+<blockquote>
+<p>&#x8BF4;&#x660E;&#xFF1A;&#x65E5;&#x5FD7;&#x683C;&#x5F0F;&#x3001;&#x56FE;&#x8868;&#x3001;Dashboard&#x90FD;&#x662F;&#x81EA;&#x5B9A;&#x4E49;&#x7684;</p>
+</blockquote>
+<h2 id="app&#x4ECB;&#x7ECD;"><a name="app&#x4ECB;&#x7ECD;" class="anchor-navigation-ex-anchor" href="#app&#x4ECB;&#x7ECD;"><i class="fa fa-link" aria-hidden="true"></i></a>App&#x4ECB;&#x7ECD;</h2>
+<p>APP&#x5728;&#x751F;&#x4EA7;&#x73AF;&#x5883;&#x5E94;&#x8BE5;&#x662F;&#x771F;&#x5B9E;&#x7CFB;&#x7EDF;&#xFF0C;&#x7136;&#x800C;&#xFF0C;&#x73B0;&#x5728;&#x6211;&#x4EEC;&#x5B66;&#x4E60;&#x7684;&#x8BDD;&#xFF0C;&#x4E3A;&#x4E86;&#x7B80;&#x5316;&#x64CD;&#x4F5C;&#xFF0C;&#x6240;&#x4EE5;&#x5C31;&#x505A;&#x6570;&#x636E;&#x7684;&#x6A21;&#x62DF;&#x751F;&#x6210;&#x5373;&#x53EF;&#x3002;</p>
+<p>&#x4E1A;&#x52A1;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre class="language-"><code class="lang-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>log</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">lombok<span class="token punctuation">.</span>extern<span class="token punctuation">.</span>slf4j<span class="token punctuation">.</span></span><span class="token class-name">Slf4j</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>commons<span class="token punctuation">.</span>lang3<span class="token punctuation">.</span></span><span class="token class-name">RandomUtils</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>joda<span class="token punctuation">.</span>time<span class="token punctuation">.</span></span><span class="token class-name">DateTime</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>autoconfigure<span class="token punctuation">.</span></span><span class="token class-name">SpringBootApplication</span><span class="token punctuation">;</span>
+
+<span class="token annotation punctuation">@Slf4j</span>
+<span class="token annotation punctuation">@SpringBootApplication</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Main</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> VISIT <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">{</span><span class="token string">&quot;&#x6D4F;&#x89C8;&#x9875;&#x9762;&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;&#x8BC4;&#x8BBA;&#x5546;&#x54C1;&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;&#x52A0;&#x5165;&#x6536;&#x85CF;&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;&#x52A0;&#x5165;&#x8D2D;&#x7269;&#x8F66;&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;&#x63D0;&#x4EA4;&#x8BA2;&#x5355;&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;&#x4F7F;&#x7528;&#x4F18;&#x60E0;&#x5238;&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;&#x9886;&#x53D6;&#x4F18;&#x60E0;&#x5238;&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;&#x641C;&#x7D22;&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;&#x67E5;&#x770B;&#x8BA2;&#x5355;&quot;</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">{</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token class-name">Long</span> sleep <span class="token operator">=</span> <span class="token class-name">RandomUtils</span><span class="token punctuation">.</span><span class="token function">nextLong</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span> <span class="token number">1000</span> <span class="token operator">*</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span>sleep<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">Long</span> maxUserId <span class="token operator">=</span> <span class="token number">9999L</span><span class="token punctuation">;</span>
+            <span class="token class-name">Long</span> userId <span class="token operator">=</span> <span class="token class-name">RandomUtils</span><span class="token punctuation">.</span><span class="token function">nextLong</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> maxUserId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">String</span> visit <span class="token operator">=</span> VISIT<span class="token punctuation">[</span><span class="token class-name">RandomUtils</span><span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> VISIT<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token class-name">DateTime</span> now <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DateTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">int</span> maxHour <span class="token operator">=</span> now<span class="token punctuation">.</span><span class="token function">getHourOfDay</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">int</span> maxMillis <span class="token operator">=</span> now<span class="token punctuation">.</span><span class="token function">getMinuteOfHour</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">int</span> maxSeconds <span class="token operator">=</span> now<span class="token punctuation">.</span><span class="token function">getSecondOfMinute</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">String</span> date <span class="token operator">=</span> now<span class="token punctuation">.</span><span class="token function">plusHours</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token punctuation">(</span><span class="token class-name">RandomUtils</span><span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> maxHour<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                    <span class="token punctuation">.</span><span class="token function">plusMinutes</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token punctuation">(</span><span class="token class-name">RandomUtils</span><span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> maxMillis<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                    <span class="token punctuation">.</span><span class="token function">plusSeconds</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token punctuation">(</span><span class="token class-name">RandomUtils</span><span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> maxSeconds<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                    <span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token string">&quot;yyyy-MM-dd HH:mm:ss&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token class-name">String</span> result <span class="token operator">=</span> <span class="token string">&quot;DAU|&quot;</span> <span class="token operator">+</span> userId <span class="token operator">+</span> <span class="token string">&quot;|&quot;</span> <span class="token operator">+</span> visit <span class="token operator">+</span> <span class="token string">&quot;|&quot;</span> <span class="token operator">+</span> date<span class="token punctuation">;</span>
+            log<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x542F;&#x52A8;&#x8FD0;&#x884C;&#xFF0C;&#x5C31;&#x662F;&#x4E0D;&#x65AD;&#x7684;&#x751F;&#x6210;&#x65E5;&#x5FD7;&#xFF0C;&#x6A21;&#x62DF;&#x4E86;&#x6211;&#x4EEC;&#x7684;&#x5B9E;&#x9645;&#x4E1A;&#x52A1;</p>
+<pre class="language-"><code class="lang-bash">09:18:32.721 <span class="token punctuation">[</span>main<span class="token punctuation">]</span> ERROR com.log.Main - DAU<span class="token operator">|</span><span class="token number">8183</span><span class="token operator">|</span>&#x52A0;&#x5165;&#x8D2D;&#x7269;&#x8F66;<span class="token operator">|</span><span class="token number">2020</span>-09-25 06:10:25
+09:18:33.599 <span class="token punctuation">[</span>main<span class="token punctuation">]</span> ERROR com.log.Main - DAU<span class="token operator">|</span><span class="token number">7097</span><span class="token operator">|</span>&#x63D0;&#x4EA4;&#x8BA2;&#x5355;<span class="token operator">|</span><span class="token number">2020</span>-09-25 06:18:31
+09:18:37.265 <span class="token punctuation">[</span>main<span class="token punctuation">]</span> ERROR com.log.Main - DAU<span class="token operator">|</span><span class="token number">1468</span><span class="token operator">|</span>&#x67E5;&#x770B;&#x8BA2;&#x5355;<span class="token operator">|</span><span class="token number">2020</span>-09-25 02:04:10
+09:18:39.634 <span class="token punctuation">[</span>main<span class="token punctuation">]</span> ERROR com.log.Main - DAU<span class="token operator">|</span><span class="token number">7821</span><span class="token operator">|</span>&#x9886;&#x53D6;&#x4F18;&#x60E0;&#x5238;<span class="token operator">|</span><span class="token number">2020</span>-09-25 02:04:07
+09:18:41.909 <span class="token punctuation">[</span>main<span class="token punctuation">]</span> ERROR com.log.Main - DAU<span class="token operator">|</span><span class="token number">7962</span><span class="token operator">|</span>&#x63D0;&#x4EA4;&#x8BA2;&#x5355;<span class="token operator">|</span><span class="token number">2020</span>-09-25 03:02:39
+09:18:43.596 <span class="token punctuation">[</span>main<span class="token punctuation">]</span> ERROR com.log.Main - DAU<span class="token operator">|</span><span class="token number">3358</span><span class="token operator">|</span>&#x8BC4;&#x8BBA;&#x5546;&#x54C1;<span class="token operator">|</span><span class="token number">2020</span>-09-25 08:14:19
+</code></pre>
+<p>&#x7136;&#x540E;&#x6211;&#x4EEC;&#x5C06;&#x8BE5;&#x9879;&#x76EE;&#x4F7F;&#x7528;&#x4E0B;&#x9762;&#x547D;&#x4EE4;&#x8FDB;&#x884C;&#x6253;&#x5305;</p>
+<pre class="language-"><code class="lang-bash">mvn clean <span class="token function">install</span>
+</code></pre>
+<p>&#x6253;&#x5305;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x5230;target&#x76EE;&#x5F55;&#x4E0B;&#xFF0C;&#x80FD;&#x591F;&#x770B;&#x5230;&#x6211;&#x4EEC;&#x751F;&#x6210;&#x7684;jar&#x5305;</p>
+<p><a href="images/image-20200925092119075.png" data-lightbox="d87e6d9e-1b26-47db-9659-9cc590038985" data-title="image-20200925092119075"><img src="images/image-20200925092119075.png" alt="image-20200925092119075"></a></p>
+<p>&#x6211;&#x4EEC;&#x5C06;&#x5176;&#x590D;&#x5236;&#x5230;&#x6211;&#x4EEC;&#x7684;&#x670D;&#x52A1;&#x5668;&#x4E0A;&#xFF0C;&#x7136;&#x540E;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x542F;&#x52A8;&#x7684;&#x811A;&#x672C; startup.sh</p>
+<pre class="language-"><code class="lang-bash"><span class="token shebang important">#!/bin/bash     </span>
+<span class="token function">nohup</span> java  -Xms256m -Xmx512m -jar  mogu-dashboard-generate-0.0.1-SNAPSHOT.jar  <span class="token operator">&gt;</span> app.log  <span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span><span class="token file-descriptor important">&amp;1</span> <span class="token operator">&amp;</span>
+</code></pre>
+<p>&#x7136;&#x540E;&#x5C31;&#x4F7F;&#x7528;&#x811A;&#x672C;&#x8FDB;&#x884C;&#x542F;&#x52A8;</p>
+<pre class="language-"><code class="lang-bash"><span class="token comment"># &#x542F;&#x52A8;</span>
+./startup.sh
+<span class="token comment"># &#x542F;&#x52A8;&#x6210;&#x529F;&#x540E;&#xFF0C;&#x4F1A;&#x770B;&#x5230;&#x4E00;&#x4E2A;&#x65E5;&#x5FD7; app.log&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x67E5;&#x770B;</span>
+<span class="token function">tail</span> -f app.log
+</code></pre>
+<h2 id="&#x914D;&#x7F6E;filebeat"><a name="&#x914D;&#x7F6E;filebeat" class="anchor-navigation-ex-anchor" href="#&#x914D;&#x7F6E;filebeat"><i class="fa fa-link" aria-hidden="true"></i></a>&#x914D;&#x7F6E;Filebeat</h2>
+<p>&#x5728;&#x6709;&#x4E86;&#x4E0D;&#x65AD;&#x4EA7;&#x751F;&#x65E5;&#x5FD7;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x9700;&#x8981;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;Filebeat&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x7528;&#x4E8E;&#x65E5;&#x5FD7;&#x7684;&#x6536;&#x96C6;</p>
+<pre class="language-"><code class="lang-bash"><span class="token comment"># &#x6253;&#x5F00;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</span>
+<span class="token function">vim</span>  mogu-dashboard.yml
+
+<span class="token comment"># &#x5199;&#x5165;&#x6570;&#x636E;</span>
+filebeat.inputs:
+- type: log
+  enabled: <span class="token boolean">true</span>
+  paths:
+    - /soft/app/*.log
+setup.template.settings:
+  index.number_of_shards: <span class="token number">1</span>
+output.logstash:
+  hosts: <span class="token punctuation">[</span><span class="token string">&quot;127.0.0.1:5044&quot;</span><span class="token punctuation">]</span>
+</code></pre>
+<p>&#x7136;&#x540E;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x542F;&#x52A8;&#x4E86;&#x3010;&#x9700;&#x8981;&#x6211;&#x4EEC;&#x628A;Logstash&#x542F;&#x52A8;&#x8D77;&#x6765;&#x3011;</p>
+<pre class="language-"><code class="lang-bash">./filebeat -e -c mogu-dashboard.yml
+</code></pre>
+<h2 id="&#x914D;&#x7F6E;logstash"><a name="&#x914D;&#x7F6E;logstash" class="anchor-navigation-ex-anchor" href="#&#x914D;&#x7F6E;logstash"><i class="fa fa-link" aria-hidden="true"></i></a>&#x914D;&#x7F6E;Logstash</h2>
+<h3 id="logstash&#x8F93;&#x51FA;&#x5230;&#x63A7;&#x5236;&#x53F0;"><a name="logstash&#x8F93;&#x51FA;&#x5230;&#x63A7;&#x5236;&#x53F0;" class="anchor-navigation-ex-anchor" href="#logstash&#x8F93;&#x51FA;&#x5230;&#x63A7;&#x5236;&#x53F0;"><i class="fa fa-link" aria-hidden="true"></i></a>Logstash&#x8F93;&#x51FA;&#x5230;&#x63A7;&#x5236;&#x53F0;</h3>
+<p>Logstash&#x7684;&#x4E3B;&#x8981;&#x76EE;&#x7684;&#x5C31;&#x662F;&#x5904;&#x7406;Filebeat&#x53D1;&#x9001;&#x8FC7;&#x6765;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x8FDB;&#x884C;&#x6570;&#x636E;&#x7684;&#x6E05;&#x6D17;&#xFF0C;&#x8FC7;&#x6EE4;&#x7B49;&#xFF0C;&#x6211;&#x4EEC;&#x9996;&#x5148;&#x7B80;&#x5355;&#x7684;&#x5C06;logstash&#x83B7;&#x5F97;&#x7684;&#x6570;&#x636E;&#x8F93;&#x51FA;&#x5230;&#x63A7;&#x5236;&#x53F0;</p>
+<pre class="language-"><code class="lang-bash"><span class="token comment"># &#x6253;&#x5F00;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</span>
+<span class="token function">vim</span>  mogu-dashboard.conf
+
+<span class="token comment"># &#x6DFB;&#x52A0;&#x4EE5;&#x4E0B;&#x5185;&#x5BB9;</span>
+input <span class="token punctuation">{</span>
+    beats <span class="token punctuation">{</span>
+        port <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">&quot;5044&quot;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+output <span class="token punctuation">{</span>
+    stdout <span class="token punctuation">{</span> codec <span class="token operator">=</span><span class="token operator">&gt;</span> rubydebug <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>&#x7136;&#x540E;&#x542F;&#x52A8;&#x6211;&#x4EEC;&#x7684;logstash &#x3010;&#x6CE8;&#x610F;&#xFF0C;&#x542F;&#x52A8;&#x65F6;&#x95F4;&#x6BD4;&#x8F83;&#x957F;&#xFF0C;&#x9700;&#x8981;&#x6211;&#x4EEC;&#x7B49;&#x5F85;&#x3011;</p>
+<pre class="language-"><code class="lang-bash">./bin/logstash -f mogu-dashboard.conf
+</code></pre>
+<p>&#x542F;&#x52A8;logstash&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x518D;&#x6B21;&#x542F;&#x52A8;filebeat&#xFF0C;&#x56DE;&#x5230;&#x4E0A;&#x9762;&#x7684;&#x542F;&#x52A8;&#x6B65;&#x9AA4;&#xFF0C;&#x7136;&#x540E;&#x5C31;&#x80FD;&#x770B;&#x5230;logstash&#x8F93;&#x51FA;&#x6211;&#x4EEC;&#x7684;&#x65E5;&#x5FD7;</p>
+<p><a href="images/image-20200925095319950.png" data-lightbox="9cb02563-b465-4291-b5b1-7b273cd4b286" data-title="image-20200925095319950"><img src="images/image-20200925095319950.png" alt="image-20200925095319950"></a></p>
+<h3 id="&#x914D;&#x7F6E;logstash&#x8FDE;&#x63A5;elasticsearch"><a name="&#x914D;&#x7F6E;logstash&#x8FDE;&#x63A5;elasticsearch" class="anchor-navigation-ex-anchor" href="#&#x914D;&#x7F6E;logstash&#x8FDE;&#x63A5;elasticsearch"><i class="fa fa-link" aria-hidden="true"></i></a>&#x914D;&#x7F6E;Logstash&#x8FDE;&#x63A5;ElasticSearch</h3>
+<p>&#x4E0A;&#x9762;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x5176;&#x5B9E;&#x8FD8;&#x662F;&#x6211;&#x4EEC;&#x7684;&#x539F;&#x59CB;&#x6570;&#x636E;&#xFF0C;&#x5E76;&#x6CA1;&#x6709;&#x7ECF;&#x8FC7;&#x5904;&#x7406;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#x5C31;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x5230;Logstash&#x7684;&#x5176;&#x5B83;&#x529F;&#x80FD;&#x4E86;&#x3002;&#x6211;&#x4EEC;&#x7EE7;&#x7EED;&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</p>
+<pre class="language-"><code class="lang-bash"><span class="token comment"># &#x6253;&#x5F00;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</span>
+<span class="token function">vim</span>  mogu-dashboard.conf
+</code></pre>
+<p>&#x7136;&#x540E;&#x4FEE;&#x6539;&#x4E00;&#x4E0B;&#x7684;&#x503C;</p>
+<pre class="language-"><code class="lang-bash">input <span class="token punctuation">{</span>
+        beats <span class="token punctuation">{</span>
+                port <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">&quot;5044&quot;</span>
+        <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+filter <span class="token punctuation">{</span>
+        mutate <span class="token punctuation">{</span>
+                <span class="token function">split</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span><span class="token string">&quot;message&quot;</span><span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">&quot;|&quot;</span><span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        mutate <span class="token punctuation">{</span>
+                add_field <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+                <span class="token string">&quot;userId&quot;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">&quot;%{[message][1]}&quot;</span>
+                <span class="token string">&quot;visit&quot;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">&quot;%{[message][2]}&quot;</span>
+                <span class="token string">&quot;date&quot;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">&quot;%{[message][3]}&quot;</span>
+                <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        mutate <span class="token punctuation">{</span>
+                convert <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+                <span class="token string">&quot;userId&quot;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">&quot;integer&quot;</span>
+                <span class="token string">&quot;visit&quot;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">&quot;string&quot;</span>
+                <span class="token string">&quot;date&quot;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">&quot;string&quot;</span>
+                <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        mutate <span class="token punctuation">{</span>
+           remove_field <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">[</span> <span class="token string">&quot;host&quot;</span> <span class="token punctuation">]</span>
+        <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token comment">#output {</span>
+<span class="token comment"># stdout { codec =&gt; rubydebug }</span>
+<span class="token comment">#}</span>
+
+output <span class="token punctuation">{</span>
+  elasticsearch <span class="token punctuation">{</span>
+    hosts <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">[</span> <span class="token string">&quot;127.0.0.1:9200&quot;</span><span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>&#x7136;&#x540E;&#x518D;&#x6B21;&#x542F;&#x52A8;</p>
+<pre class="language-"><code class="lang-bash">./bin/logstash -f mogu-dashboard.conf
+</code></pre>
+<p>&#x5176;&#x5B9E;&#x80FD;&#x591F;&#x770B;&#x5230;&#xFF0C;&#x6211;&#x4EEC;&#x539F;&#x6765;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x5C31;&#x7ECF;&#x8FC7;&#x4E86;&#x5904;&#x7406;&#x4E86;&#xFF0C;&#x4EA7;&#x751F;&#x4E86;&#x65B0;&#x7684;&#x5B57;&#x6BB5;</p>
+<p><a href="images/image-20200925095824693.png" data-lightbox="715b2500-7c45-4285-a6ad-1470567c983b" data-title="image-20200925095824693"><img src="images/image-20200925095824693.png" alt="image-20200925095824693"></a></p>
+<p>&#x540C;&#x65F6;&#x6211;&#x4EEC;&#x8FD8;&#x53EF;&#x4EE5;&#x5BF9;&#x6211;&#x4EEC;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x8FDB;&#x884C;&#x7C7B;&#x578B;&#x8F6C;&#x6362;&#xFF0C;&#x4E3A;&#x4E86;&#x65B9;&#x4FBF;&#x6211;&#x4EEC;&#x7684;&#x4E0B;&#x6E38;&#x8FDB;&#x884C;&#x5904;&#x7406;</p>
+<pre class="language-"><code class="lang-bash">    mutate <span class="token punctuation">{</span>
+        convert <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+        <span class="token string">&quot;userId&quot;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">&quot;integer&quot;</span>
+        <span class="token string">&quot;visit&quot;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">&quot;string&quot;</span>
+        <span class="token string">&quot;date&quot;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">&quot;string&quot;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+</code></pre>
+<h3 id="&#x9047;&#x5230;&#x7684;&#x95EE;&#x9898;1"><a name="&#x9047;&#x5230;&#x7684;&#x95EE;&#x9898;1" class="anchor-navigation-ex-anchor" href="#&#x9047;&#x5230;&#x7684;&#x95EE;&#x9898;1"><i class="fa fa-link" aria-hidden="true"></i></a>&#x9047;&#x5230;&#x7684;&#x95EE;&#x9898;1</h3>
+<pre class="language-"><code class="lang-bash"><span class="token punctuation">[</span><span class="token number">2020</span>-09-25T02:32:44,042<span class="token punctuation">]</span><span class="token punctuation">[</span>WARN <span class="token punctuation">]</span><span class="token punctuation">[</span>logstash.filters.mutate  <span class="token punctuation">]</span><span class="token punctuation">[</span>main<span class="token punctuation">]</span><span class="token punctuation">[</span>5fd6a2f2f396816d849f2e3e2e0a53f2500a9b58c6819e23f42d2bfd34cde207<span class="token punctuation">]</span> Exception caught <span class="token keyword">while</span> applying mutate filter <span class="token punctuation">{</span>:exception<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token string">&quot;Invalid FieldReference: <span class="token variable"><span class="token variable">`</span>message<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token variable">`</span></span>&quot;</span><span class="token punctuation">}</span>
+</code></pre>
+<p>&#x4E0D;&#x65AD;&#x7684;&#x5237;&#x8FD9;&#x4E2A;&#x9519;&#x8BEF;&#xFF0C;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x6CA1;&#x95EE;&#x9898;&#xFF0C;&#x4F46;&#x6DFB;&#x52A0;&#x5B57;&#x6BB5;&#x90A3;&#x4E00;&#x4E2A;mutate&#x9700;&#x8981;&#x7ED9;message&#x5957;&#x4E00;&#x5C42;&#x4E2D;&#x62EC;&#x53F7;&#xFF1A;</p>
+<pre class="language-"><code class="lang-bash">mutate <span class="token punctuation">{</span>
+    add_field <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+        <span class="token string">&quot;userId&quot;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">&quot;%{[message][1]}&quot;</span>
+        <span class="token string">&quot;visit&quot;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">&quot;%{[message][2]}&quot;</span>
+        <span class="token string">&quot;date&quot;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">&quot;%{[message][3]}&quot;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="&#x9047;&#x5230;&#x7684;&#x95EE;&#x9898;2"><a name="&#x9047;&#x5230;&#x7684;&#x95EE;&#x9898;2" class="anchor-navigation-ex-anchor" href="#&#x9047;&#x5230;&#x7684;&#x95EE;&#x9898;2"><i class="fa fa-link" aria-hidden="true"></i></a>&#x9047;&#x5230;&#x7684;&#x95EE;&#x9898;2</h3>
+<p>filebeat &#x4F20;&#x8F93;&#x5230;host&#x7684;&#x5B57;&#x6BB5;&#x4E2D;host&#x662F;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;</p>
+<pre class="language-"><code class="lang-bash">failed to parse field <span class="token punctuation">[</span>host<span class="token punctuation">]</span> of <span class="token builtin class-name">type</span> <span class="token punctuation">[</span>text<span class="token punctuation">]</span> <span class="token keyword">in</span> document
+</code></pre>
+<p>&#x89E3;&#x51B3;&#x65B9;&#x6CD5;&#x5C31;&#x662F;&#x8FC7;&#x6EE4;&#x6389;host&#x5B57;&#x6BB5;</p>
+<pre class="language-"><code class="lang-bash">mutate <span class="token punctuation">{</span>
+    remove_field <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">[</span> <span class="token string">&quot;host&quot;</span> <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="&#x542F;&#x52A8;elasticsearch"><a name="&#x542F;&#x52A8;elasticsearch" class="anchor-navigation-ex-anchor" href="#&#x542F;&#x52A8;elasticsearch"><i class="fa fa-link" aria-hidden="true"></i></a>&#x542F;&#x52A8;ElasticSearch</h2>
+<p>&#x5728;&#x6211;&#x4EEC;&#x901A;&#x8FC7;Logstash&#x53D1;&#x9001;&#x6570;&#x636E;&#x5230;ElasticSearch&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x8FD8;&#x9700;&#x8981;&#x542F;&#x52A8;&#x6211;&#x4EEC;&#x7684;ElasticSearch</p>
+<pre class="language-"><code class="lang-bash"><span class="token comment"># &#x5207;&#x6362;&#x5230;elsearch&#x7528;&#x6237;</span>
+<span class="token function">su</span> elsearch
+
+<span class="token comment"># &#x5230;&#x76EE;&#x5F55;</span>
+<span class="token builtin class-name">cd</span> /soft/elsearch/bin
+
+<span class="token comment"># &#x542F;&#x52A8;</span>
+./elasticsearch
+</code></pre>
+<h2 id="&#x542F;&#x52A8;kibana"><a name="&#x542F;&#x52A8;kibana" class="anchor-navigation-ex-anchor" href="#&#x542F;&#x52A8;kibana"><i class="fa fa-link" aria-hidden="true"></i></a>&#x542F;&#x52A8;Kibana</h2>
+<p>&#x6211;&#x4EEC;&#x6700;&#x540E;&#x5C31;&#x9700;&#x8981;&#x901A;&#x8FC7;Kibana&#x6765;&#x5C55;&#x793A;&#x6211;&#x4EEC;&#x7684;&#x56FE;&#x5F62;&#x5316;&#x6570;&#x636E;</p>
+<pre class="language-"><code class="lang-bash"><span class="token comment"># &#x542F;&#x52A8;kibana</span>
+./bin/kibana
+
+<span class="token comment"># &#x901A;&#x8FC7;&#x6D4F;&#x89C8;&#x5668;&#x8BBF;&#x95EE;</span>
+http://202.193.56.222:5601/app/kibana
+</code></pre>
+<h3 id="&#x6DFB;&#x52A0;&#x5230;&#x7D22;&#x5F15;&#x5E93;"><a name="&#x6DFB;&#x52A0;&#x5230;&#x7D22;&#x5F15;&#x5E93;" class="anchor-navigation-ex-anchor" href="#&#x6DFB;&#x52A0;&#x5230;&#x7D22;&#x5F15;&#x5E93;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6DFB;&#x52A0;&#x5230;&#x7D22;&#x5F15;&#x5E93;</h3>
+<p>&#x6DFB;&#x52A0;Logstash&#x7D22;&#x5F15;&#x5230;Kibana&#x4E2D;&#xFF1A;</p>
+<pre class="language-"><code class="lang-bash">http://202.193.56.222:5601/app/management/kibana/indexPatterns/create
+</code></pre>
+<p><a href="images/image-20200925112345791.png" data-lightbox="6fd4ccd7-5270-4c8d-be81-6eb6e042e837" data-title="image-20200925112345791"><img src="images/image-20200925112345791.png" alt="image-20200925112345791"></a></p>
+<p>&#x8F93;&#x5165;&#x6211;&#x4EEC;&#x7684;&#x5339;&#x914D;&#x89C4;&#x5219;&#xFF0C;&#x7136;&#x540E;&#x5339;&#x914D;&#x5230;logstash&#xFF0C;&#x7136;&#x540E;&#x9009;&#x62E9;&#x65F6;&#x95F4;&#x5B57;&#x6BB5;&#x540E;&#x521B;&#x5EFA;</p>
+<p><a href="images/image-20200925112534588.png" data-lightbox="084885aa-1f74-4249-97b6-adf31294c775" data-title="image-20200925112534588"><img src="images/image-20200925112534588.png" alt="image-20200925112534588"></a></p>
+<h3 id="&#x521B;&#x5EFA;&#x67F1;&#x5F62;&#x56FE;"><a name="&#x521B;&#x5EFA;&#x67F1;&#x5F62;&#x56FE;" class="anchor-navigation-ex-anchor" href="#&#x521B;&#x5EFA;&#x67F1;&#x5F62;&#x56FE;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x521B;&#x5EFA;&#x67F1;&#x5F62;&#x56FE;</h3>
+<p>&#x6211;&#x4EEC;&#x70B9;&#x51FB;&#x53F3;&#x4FA7;Visualizations&#xFF0C;&#x7136;&#x540E;&#x5F00;&#x59CB;&#x521B;&#x5EFA;&#x56FE;&#x6807;</p>
+<p><a href="images/image-20200925112621210.png" data-lightbox="ee0406e7-c2be-4fae-8c0d-5fe51e792fb2" data-title="image-20200925112621210"><img src="images/image-20200925112621210.png" alt="image-20200925112621210"></a></p>
+<p>&#x7136;&#x540E;&#x9009;&#x62E9;&#x67F1;&#x5F62;&#x56FE;</p>
+<p><a href="images/image-20200925112705557.png" data-lightbox="736a178c-7c2b-4733-bf01-437040e17294" data-title="image-20200925112705557"><img src="images/image-20200925112705557.png" alt="image-20200925112705557"></a></p>
+<p>&#x5728;&#x9009;&#x62E9;&#x6211;&#x4EEC;&#x7684;&#x7D22;&#x5F15;</p>
+<p><a href="images/image-20200925112758534.png" data-lightbox="d1d92aeb-49bf-4de5-8096-33ca532b53fc" data-title="image-20200925112758534"><img src="images/image-20200925112758534.png" alt="image-20200925112758534"></a></p>
+<p>&#x6700;&#x540E;&#x6211;&#x4EEC;&#x5B9A;&#x4E49;&#x6211;&#x4EEC;&#x7684;X&#x8F74;&#xFF0C;&#x9009;&#x62E9;&#x6309;&#x7167;&#x65F6;&#x95F4;&#x8FDB;&#x884C;&#x6DFB;&#x52A0;</p>
+<p><a href="images/image-20200925113054316.png" data-lightbox="a5530ea3-05da-4107-9d09-6548b20bbafb" data-title="image-20200925113054316"><img src="images/image-20200925113054316.png" alt="image-20200925113054316"></a></p>
+<p>&#x6700;&#x540E;&#x66F4;&#x65B0;&#x6211;&#x4EEC;&#x7684;&#x9875;&#x9762;&#xFF0C;&#x7136;&#x540E;&#x5728;&#x9009;&#x62E9;&#x6700;&#x8FD1;&#x7684;30&#x5206;&#x949F;</p>
+<p><a href="images/image-20200925113133267.png" data-lightbox="c02e565a-c7f2-4a91-ad17-434a8d429716" data-title="image-20200925113133267"><img src="images/image-20200925113133267.png" alt="image-20200925113133267"></a></p>
+<p>&#x5C31;&#x80FD;&#x591F;&#x770B;&#x5230;&#x6211;&#x4EEC;&#x7684;&#x65E5;&#x5FD7;&#x5728;&#x6E90;&#x6E90;&#x4E0D;&#x65AD;&#x7684;&#x751F;&#x6210;&#x4E86;&#xFF0C;&#x540C;&#x65F6;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5BF9;&#x6211;&#x4EEC;&#x7684;&#x8FD9;&#x4E2A;&#x56FE;&#x8868;&#x8FDB;&#x884C;&#x4FDD;&#x5B58;</p>
+<p><a href="images/image-20200925113154752.png" data-lightbox="7bb23cd4-c7aa-4b84-85b4-3482e84d9e73" data-title="image-20200925113154752"><img src="images/image-20200925113154752.png" alt="image-20200925113154752"></a></p>
+<h3 id="&#x521B;&#x5EFA;&#x997C;&#x56FE;"><a name="&#x521B;&#x5EFA;&#x997C;&#x56FE;" class="anchor-navigation-ex-anchor" href="#&#x521B;&#x5EFA;&#x997C;&#x56FE;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x521B;&#x5EFA;&#x997C;&#x56FE;</h3>
+<p>&#x6211;&#x4EEC;&#x7EE7;&#x7EED;&#x9009;&#x62E9;&#x997C;&#x56FE;</p>
+<p><a href="images/image-20200925144902642.png" data-lightbox="967fcb9b-8040-4286-a48c-4dd8ec487b15" data-title="image-20200925144902642"><img src="images/image-20200925144902642.png" alt="image-20200925144902642"></a></p>
+<p>&#x7136;&#x540E;&#x9009;&#x62E9;&#x6211;&#x4EEC;&#x7684;&#x7D22;&#x5F15;</p>
+<p><a href="images/image-20200925144939062.png" data-lightbox="f1dab762-983f-4784-b986-f9c6e806b38e" data-title="image-20200925144939062"><img src="images/image-20200925144939062.png" alt="image-20200925144939062"></a></p>
+<p>&#x6DFB;&#x52A0;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x770B;&#x5230;&#x8FD9;&#x6837;&#x4E00;&#x4E2A;&#x9875;&#x9762;&#x4E86;</p>
+<p><a href="images/image-20200925145116116.png" data-lightbox="bfc29d6d-b86b-4199-bf6b-69c43a30aad8" data-title="image-20200925145116116"><img src="images/image-20200925145116116.png" alt="image-20200925145116116"></a></p>
+<p>&#x4F46;&#x662F;&#x8FD9;&#x6837;&#x8FD8;&#x4E0D;&#x6B7B;&#x5F88;&#x76F4;&#x89C2;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x8FD8;&#x9700;&#x8981;&#x505A;&#x5904;&#x7406;&#xFF0C;&#x627E;&#x5230;&#x53F3;&#x4FA7;&#x7684;Buckets&#xFF0C;&#x7136;&#x540E;&#x9009;&#x62E9;Split Slices&#xFF0C;&#x7136;&#x540E;&#x628A;&#x6211;&#x4EEC;&#x7684;&#x6BCF;&#x4E2A;&#x5B57;&#x6BB5;&#x90FD;&#x6DFB;&#x52A0;&#x4E0A;&#x53BB;&#xFF0C;&#x5176;&#x4E2D;visit&#x6307;&#x7684;&#x662F;&#x6211;&#x4EEC;es&#x4E2D;&#x7684;&#x5C5E;&#x6027;</p>
+<p><a href="images/image-20200925145451255.png" data-lightbox="567dd6ef-ccf8-4332-8770-d92097da7196" data-title="image-20200925145451255"><img src="images/image-20200925145451255.png" alt="image-20200925145451255"></a></p>
+<p>&#x6700;&#x540E;&#x9009;&#x62E9;update&#xFF0C;&#x5F97;&#x5230;&#x7684;&#x6548;&#x679C;&#x5982;&#x4E0B;&#x6240;&#x793A;</p>
+<p><a href="images/image-20200925145553509.png" data-lightbox="b4e3f505-4212-4f27-8186-dbc79ed390a7" data-title="image-20200925145553509"><img src="images/image-20200925145553509.png" alt="image-20200925145553509"></a></p>
+<p>&#x6211;&#x4EEC;&#x8FD8;&#x53EF;&#x4EE5;&#x7EE7;&#x7EED;&#x7ED9;&#x6BCF;&#x4E2A;&#x5B57;&#x6BB5;&#x90FD;&#x6DFB;&#x52A0;label&#x6807;&#x7B7E;</p>
+<p><a href="images/image-20200925145747292.png" data-lightbox="30365e11-a0d4-47e0-86f8-624655f83c13" data-title="image-20200925145747292"><img src="images/image-20200925145747292.png" alt="image-20200925145747292"></a></p>
+<p>&#x6DFB;&#x52A0;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x66F4;&#x65B0;&#x9875;&#x9762;&#xFF0C;&#x5C31;&#x5F97;&#x5230;&#x975E;&#x5E38;&#x4E0D;&#x9519;&#x7684;&#x6548;&#x679C;&#x4E86;~</p>
+<p><a href="images/image-20200925145807688.png" data-lightbox="2f2ca916-3b96-489a-ae41-d1e23de593f0" data-title="image-20200925145807688"><img src="images/image-20200925145807688.png" alt="image-20200925145807688"></a></p>
+<h3 id="&#x6570;&#x636E;&#x8868;&#x683C;"><a name="&#x6570;&#x636E;&#x8868;&#x683C;" class="anchor-navigation-ex-anchor" href="#&#x6570;&#x636E;&#x8868;&#x683C;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6570;&#x636E;&#x8868;&#x683C;</h3>
+<p>&#x5728;&#x56FE;&#x6807;&#x4E2D;&#xFF0C;&#x9009;&#x62E9;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x663E;&#x793A;&#x7684;&#x5B57;&#x6BB5;&#x5373;&#x53EF;</p>
+<p><a href="images/image-20200925150415045.png" data-lightbox="c6089cd1-d3fb-4d3a-aedf-26fafd179f9c" data-title="image-20200925150415045"><img src="images/image-20200925150415045.png" alt="image-20200925150415045"></a></p>
+<h2 id="&#x5236;&#x4F5C;dashboard"><a name="&#x5236;&#x4F5C;dashboard" class="anchor-navigation-ex-anchor" href="#&#x5236;&#x4F5C;dashboard"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5236;&#x4F5C;Dashboard</h2>
+<p><a href="images/image-20200925151827734.png" data-lightbox="fec91b62-1df9-4cc9-8bd4-41be79b8088b" data-title="image-20200925151827734"><img src="images/image-20200925151827734.png" alt="image-20200925151827734"></a></p><hr><div id="vcomments"></div><script src="//unpkg.com/valine/dist/Valine.min.js"></script><script>new Valine({el: "#vcomments",appId: 'CHjATxRcQrXst8eJrdwX0vjz-gzGzoHsz',appKey: 'nWerbwV2WMAxOEmAMkJKvXzs',placeholder: 'Just go go',avatar: '',meta: undefined,pageSize: 10,lang: 'zh-CN',recordIP: false})</script> <p></p>
+<footer class="page-footer"><span class="copyright">victorfengming.gitee.io&#xFF0C;&#x4F7F;&#x7528;<a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">&#x7F72;&#x540D;4.0&#x56FD;&#x9645;(CC BY 4.0)&#x534F;&#x8BAE;</a>&#x53D1;&#x5E03; all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x6700;&#x540E;&#x66F4;&#x65B0;&#xFF1A;
+2021-04-01 13:32:12
+</span></footer></body></html>
+<script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../4_Logstash入门简介/" class="navigation navigation-prev " aria-label="Previous page: 4_Logstash入门简介">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../6_使用ELK搭建蘑菇博客日志收集/" class="navigation navigation-next " aria-label="Next page: 6_使用ELK搭建蘑菇博客日志收集">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"5_ElasticStack综合案例","level":"3.1.5","depth":2,"next":{"title":"6_使用ELK搭建蘑菇博客日志收集","level":"3.1.6","depth":2,"path":"hm/6_使用ELK搭建蘑菇博客日志收集/README.md","ref":"hm/6_使用ELK搭建蘑菇博客日志收集/README.md","articles":[]},"previous":{"title":"4_Logstash入门简介","level":"3.1.4","depth":2,"path":"hm/4_Logstash入门简介/README.md","ref":"hm/4_Logstash入门简介/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["code","valine","hide-element","chapter-fold","expandable-chapters","favicon","lightbox","splitter","-lunr","pageview-count","ancre-navigation","-search","search-plus","-highlight","popup","prism","prism-themes","-sharing","sharing-plus","tbfed-pagefooter","toolbar-button"],"root":"./src","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"victorfengming.gitee.io，使用<a href='https://creativecommons.org/licenses/by/4.0/deed.zh'>署名4.0国际(CC BY 4.0)协议</a>发布","modify_label":"最后更新：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"prism":{"css":["prism-themes/themes/prism-atom-dark.css"]},"toolbar-button":{"label":"下载PDF","url":"https://victorfengming.gitee.io/elk/","icon":"fa-file-pdf-o"},"splitter":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"favicon":{"shortcut":"./img/avator.png.icon.ico","bookmark":"./img/avator.png.icon.ico"},"lightbox":{"jquery":true,"sameUuid":false},"pageview-count":{},"prism-themes":{},"ancre-navigation":{"showLevel":true,"associatedWithSummary":true,"mode":"float","printLog":false,"multipleH1":true,"float":{"showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""},"pageTop":{"showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""}},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","line","linkedin","messenger","pocket","qq","qzone","stumbleupon","twitter","viber","vk","weibo","whatsapp"],"douban":false,"facebook":false,"weibo":true,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":true,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{},"valine":{"placeholder":"Just go go","avatar":"","pageSize":10,"lang":"zh-CN","recordIP":false,"appId":"CHjATxRcQrXst8eJrdwX0vjz-gzGzoHsz","appKey":"nWerbwV2WMAxOEmAMkJKvXzs"},"search-plus":{}},"theme":"default","author":"Victor <victorfengming@163.com>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"elk","language":"zh-hans","links":{"sidebar":{"文档索引页":"https://victorfengming.gitee.io/index/gitbook/"}},"gitbook":"3.2.3","description":"轻量级开源日志文件数据搜集器"},"file":{"path":"hm/5_ElasticStack综合案例/README.md","mtime":"2021-04-01T05:32:12.760Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-10-28T02:57:56.904Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-hide-element/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lightbox/js/lightbox.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-toolbar-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
